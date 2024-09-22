@@ -1,0 +1,256 @@
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage{color}
+\usepackage{docmute}
+\usepackage{hyperref}
+\usepackage{mathrsfs}
+\usepackage{physics}
+\usepackage{tikz}
+\usepackage{tcolorbox}
+
+\numberwithin{equation}{section}
+
+\usetikzlibrary{arrows.meta,calc,intersections,shapes.callouts,tikzmark}
+
+% theorem environment
+% cf. https://qiita.com/rityo_masu/items/5ef248024b294d72799a
+\tcbuselibrary{breakable, skins, theorems}
+\theoremstyle{definition}
+\newcounter{dfn}[section]\setcounter{dfn}{0}
+\renewcommand{\thedfn}{\arabic{section}.\arabic{dfn}}
+\newtcbtheorem{dfn}{Definition}{
+    enhanced,
+    attach boxed title to top left={xshift=5mm,yshift=-3mm},
+    boxed title style={colframe=green!20!black, colback=white},
+    coltitle=black,
+    colback=white,
+    colframe=green!20!black,
+    fonttitle=\bfseries,
+    breakable=true,
+    top=4mm
+}{def}
+\newtcbtheorem{defn*}{def.}{
+    enhanced,
+    attach boxed title to top left={xshift=5mm, yshift=-3mm},
+    boxed title style={colframe=green!20!black, colback=white},
+    coltitle=black,
+    colback=white,
+    colframe=green!20!black,
+    fonttitle=\bfseries,
+    breakable=true,
+    top=4mm
+}{defn}
+\newcounter{thm}[section]\setcounter{thm}{0}
+\renewcommand{\thethm}{\arabic{section}.\arabic{thm}}
+\newtcbtheorem{thm}{Theorem}{
+    enhanced,
+    attach boxed title to top left={xshift=5mm, yshift=-3mm},
+    boxed title style={colframe=green!20!black, colback=white},
+    coltitle=black,
+    colback=white,
+    colframe=green!20!black,
+    fonttitle=\bfseries,
+    breakable=true,
+    top=4mm
+}{thm}
+\newtcbtheorem{lem}{Lemma}{
+    enhanced,
+    attach boxed title to top left={xshift=5mm, yshift=-3mm},
+    boxed title style={colframe=purple!20!black, colback=white},
+    coltitle=black,
+    colback=white,
+    colframe=purple!20!black,
+    fonttitle=\bfseries,
+    breakable=true,
+    top=4mm
+}{lem}
+\newcounter{conj}[section]\setcounter{conj}{0}
+\renewcommand{\thethm}{\arabic{section}.\arabic{conj}}
+\newtcbtheorem{conj*}{Conj.}{
+    enhanced,
+    attach boxed title to top left={xshift=5mm, yshift=-3mm},
+    boxed title style={colframe=green!20!black, colback=white},
+    coltitle=black,
+    colback=white,
+    colframe=green!20!black,
+    fonttitle=\bfseries,
+    breakable=true,
+    top=4mm
+}{conj}
+\newcounter{remark}[section]\setcounter{remark}{0}
+\renewcommand{\theremark}{\arabic{section}.\arabic{remark}}
+\newtcbtheorem{remark}{Remark}{
+    enhanced,
+    attach boxed title to top left={xshift=5mm,yshift=-3mm},
+    boxed title style={colframe=red, colback=white},
+    coltitle=black,
+    colback=white,
+    colframe=red,
+    fonttitle=\bfseries,
+    breakable=true,
+    top=4mm
+}{rem}
+\newtcbtheorem{rem*}{rem.}{
+    enhanced,
+    attach boxed title to top left={xshift=5mm,yshift=-3mm},
+    boxed title style={colframe=red, colback=white},
+    coltitle=black,
+    colback=white,
+    colframe=red,
+    fonttitle=\bfseries,
+    breakable=true,
+    top=4mm
+}{rem}
+\newcounter{cor}[section]\setcounter{cor}{0}
+\renewcommand{\thecor}{\arabic{section}.\arabic{cor}}
+\newtcbtheorem{cor*}{Cor.}{
+    enhanced,
+    attach boxed title to top left={xshift=5mm,yshift=-3mm},
+    boxed title style={colframe=red, colback=white},
+    coltitle=black,
+    colback=white,
+    colframe=red,
+    fonttitle=\bfseries,
+    breakable=true,
+    top=4mm
+}{cor}
+\newcounter{ex}[section]\setcounter{ex}{0}
+\renewcommand{\theex}{\arabic{section}.\arabic{ex}}
+\newtcbtheorem{ex}{Example}{
+    enhanced,
+    attach boxed title to top left={xshift=5mm,yshift=-3mm},
+    boxed title style={colframe=orange!20!black, colback=white},
+    coltitle=black,
+    colback=white,
+    colframe=orange!20!black,
+    fonttitle=\bfseries,
+    breakable=true,
+    top=4mm
+}{ex}
+\newtcbtheorem{eg*}{e.g.}{
+    enhanced,
+    attach boxed title to top left={xshift=5mm,yshift=-3mm},
+    boxed title style={colframe=orange!20!black, colback=white},
+    coltitle=black,
+    colback=white,
+    colframe=orange!20!black,
+    fonttitle=\bfseries,
+    breakable=true,
+    top=4mm
+}{ex}
+\newcounter{statement}[section]\setcounter{statement}{0}
+\renewcommand{\thestatement}{\arabic{section}.\arabic{statement}}
+\newtcbtheorem{statement}{Statement}{
+    enhanced,
+    attach boxed title to top left={xshift=5mm,yshift=-3mm},
+    boxed title style={colframe=blue, colback=white},
+    coltitle=black,
+    colback=white,
+    colframe=blue,
+    fonttitle=\bfseries,
+    breakable=true,
+    top=4mm
+}{stat}
+\newtcbtheorem{stat*}{stat.}{
+    enhanced,
+    attach boxed title to top left={xshift=5mm,yshift=-3mm},
+    boxed title style={colframe=blue, colback=white},
+    coltitle=black,
+    colback=white,
+    colframe=blue,
+    fonttitle=\bfseries,
+    breakable=true,
+    top=4mm
+}{stat}
+\newtcbtheorem{setup*}{Setup}{
+    enhanced,
+    attach boxed title to top left={xshift=5mm,yshift=-3mm},
+    boxed title style={colframe=blue, colback=white},
+    coltitle=black,
+    colback=white,
+    colframe=blue,
+    fonttitle=\bfseries,
+    breakable=true,
+    top=4mm
+}{prop}
+\newtcbtheorem{prop*}{prop.}{
+    enhanced,
+    attach boxed title to top left={xshift=5mm,yshift=-3mm},
+    boxed title style={colframe=blue, colback=white},
+    coltitle=black,
+    colback=white,
+    colframe=blue,
+    fonttitle=\bfseries,
+    breakable=true,
+    top=4mm
+}{prop}
+
+% \renewcommand{\thedfn}{section}
+% \renewcommand{\thedefn}{section}
+% \renewcommand{\theremark}{section}
+% \renewcommand{\therem}{section}
+% \renewcommand{\therem}{section}
+% \renewcommand{\theexample}{section}
+% \renewcommand{\theeg}{section}
+% \renewcommand{\thestatement}{section}
+% \renewcommand{\thestat}{section}
+% \renewcommand{\theprop}{section}
+
+
+% font color
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\newcommand{\green}[1]{\textcolor{green}{#1}}
+\newcommand{\purple}[1]{\textcolor{purple}{#1}}
+
+
+% reference
+% if the subfile is compliled, load bibliography
+% cf. https://geniusium.hatenablog.com/entry/2022/03/16/200355
+\newif\ifsubfile
+\newcommand\mokuji{
+  \ifsubfile
+    \tableofcontents
+    \clearpage
+  \else
+    \relax
+  \fi
+}
+\newcommand\bunken{
+  \ifsubfile
+    \clearpage
+    \bibliographystyle{junsrt}
+    \bibliography{mybib}
+  \else
+    \relax
+  \fi
+}
+
+% for fukidashi
+% cf. https://qiita.com/ushitora_anqou/items/01d0cd03535a1401736a
+% Usage: \COLabel{name#1}{text#2}
+% e.g.:  \COLabel{psi1}{$\psi_1$}
+\newcommand{\COLabel}[2]{%
+    \tikz[%
+        remember picture,%
+        baseline=(#1.base),%
+        every node/.style={inner sep=0,outer sep=0}%
+    ]{%
+        \node (#1){#2};%
+    }}
+% Usage: \CO<page#1>{target name#2}{++(x,y)#3}[opt#4]{text#5}
+% e.g.:  \CO<2>{psi1}{++(-4,1.5)}[text width=3cm]{hogehoge fugafuga piyopiyo}
+\NewDocumentCommand\CO{d<> m m O{} m}{%
+    \begin{tikzpicture}[remember picture, overlay]
+        \IfValueTF{#1}{\path<#1>}{\path} (#2.center) #3 node[%
+            anchor=center,%
+            rectangle callout,%
+            fill=red!50,%
+            callout absolute pointer={(#2.mid)},%
+            font=\bfseries\footnotesize,
+            rounded corners,
+            #4
+        ]{#5};
+    \end{tikzpicture}}
