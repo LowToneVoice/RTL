@@ -220,6 +220,37 @@
     \end{equation*}
 \end{frame}
 
+\begin{frame}{矢印で理解するなら}
+    % \begin{equation*}
+    %     \mqty[a & b \\ c & d]\mqty[e_x \\ e_y]
+    %     =
+    %     \mqty[ae_x+be_y \\ ce_x+de_y]
+    % \end{equation*}
+    \begin{equation*}
+        \mqty[a & b \\ c & d]:
+        \qty(\mqty[1 \\ 0], \mqty[0 \\ 1])
+        \mapsto
+        \qty(\mqty[a \\ c], \mqty[b \\ d])
+    \end{equation*}
+    ベクトルを回転・伸縮
+    \begin{equation}
+        \begin{tikzpicture}
+            \draw[thin, dotted](-1,-1)grid(2,2);
+            \draw[->, >=Stealth](-1,0)--(2,0);
+            \draw[->, >=Stealth](0,-1)--(0,2);
+            \draw[ultra thick, ->, red](0,0)--(1,0);
+            \draw[ultra thick, ->, blue](0,0)--(0,1);
+        \end{tikzpicture}
+        \mapsto
+        \begin{tikzpicture}
+            \draw[->, >=Stealth](-1,0)--(2,0);
+            \draw[->, >=Stealth](0,-1)--(0,2);
+            \draw[ultra thick, ->, red](0,0)--(1,0);
+            \draw[ultra thick, ->, blue](0,0)--(0,1);
+        \end{tikzpicture}
+    \end{equation}
+\end{frame}
+
 \begin{frame}{行列積}
     \begin{equation*}
         \begin{split}
@@ -510,6 +541,9 @@
     \end{eg*}
     一般に行列$\hat{H}$から固有値$E$と固有状態ベクトル$\ket{\phi}$を見つけるのは至難の業
     (原理的にはできるが計算が膨大)。
+\end{frame}
+
+\begin{frame}{矢印で理解するなら}
 \end{frame}
 
 \begin{frame}{期待値ってなに?}
