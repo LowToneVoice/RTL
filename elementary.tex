@@ -3,6 +3,8 @@
 
 \usetheme{Rochester}
 
+\newtheorem*{requirement}{要請}
+
 \setbeamertemplate{footline}[frame number]
 \AtBeginSection[]{
     \frame{\tableofcontents[currentsection, hideallsubsections]} %目次スライド
@@ -17,7 +19,23 @@
     \titlepage
 \end{frame}
 
-\begin{frame}{自己紹介}
+\begin{frame}{2025年物性物理夏の学校やります!!!}
+    \begin{itemize}
+        \item 全国の物性物理関連の大学院生が集結
+        \item 4泊5日の集中合宿
+        \item 講義・集中ゼミで最先端研究をキャッチアップ
+        \item 学会形式で自分の研究を発表
+    \end{itemize}
+    \textbf{\red{参加・斡旋・各種協賛お願いします!!!}}
+\end{frame}
+
+\begin{frame}{自己紹介: 低音}
+    \begin{itemize}
+        \item 京大 基礎物理学研究所 M1
+        \item 専門は凝縮系理論物理
+        \item 登山・自転車が趣味
+        \item note「ペンローズのグラフ記法」
+    \end{itemize}
 \end{frame}
 
 \begin{frame}{このセミナーで登場しないもの}
@@ -228,27 +246,35 @@
     % \end{equation*}
     \begin{equation*}
         \mqty[a & b \\ c & d]:
-        \qty(\mqty[1 \\ 0], \mqty[0 \\ 1])
+        \qty(\red{\mqty[1 \\ 0]}, \blue{\mqty[0 \\ 1]})
         \mapsto
-        \qty(\mqty[a \\ c], \mqty[b \\ d])
+        \qty(\red{\mqty[a \\ c]}, \blue{\mqty[b \\ d]})
     \end{equation*}
     ベクトルを回転・伸縮
-    \begin{equation}
-        \begin{tikzpicture}
-            \draw[thin, dotted](-1,-1)grid(2,2);
-            \draw[->, >=Stealth](-1,0)--(2,0);
-            \draw[->, >=Stealth](0,-1)--(0,2);
-            \draw[ultra thick, ->, red](0,0)--(1,0);
-            \draw[ultra thick, ->, blue](0,0)--(0,1);
-        \end{tikzpicture}
+    \begin{equation*}
+        \vcenter{\hbox{
+            \begin{tikzpicture}
+                \draw[thin, dotted](-1,-1)grid(2,2);
+                \draw[->, >=Stealth](-1,0)--(2,0);
+                \draw[->, >=Stealth](0,-1)--(0,2);
+                \draw[ultra thick, ->, red](0,0)--(1,0);
+                \draw[ultra thick, ->, blue](0,0)--(0,1);
+            \end{tikzpicture}
+        }}
         \mapsto
-        \begin{tikzpicture}
-            \draw[->, >=Stealth](-1,0)--(2,0);
-            \draw[->, >=Stealth](0,-1)--(0,2);
-            \draw[ultra thick, ->, red](0,0)--(1,0);
-            \draw[ultra thick, ->, blue](0,0)--(0,1);
-        \end{tikzpicture}
-    \end{equation}
+        \vcenter{\hbox{
+            \begin{tikzpicture}
+                \draw[thin, dotted](1,2)--(-.5,-1);
+                \draw[thin, dotted](-1,0)--(0,2);
+                \draw[thin, dotted](2,2)--(.5,-1);
+                \draw[thin, dotted](2,0)--(1.5,-1);
+                \draw[thin, dotted](-1,2)--++(3,0);
+                \draw[thin, dotted](-1,0)--++(3,0);
+                \draw[ultra thick, ->, red](0,0)--(1,2);
+                \draw[ultra thick, ->, blue](0,0)--(-1,0);
+            \end{tikzpicture}
+        }}
+    \end{equation*}
 \end{frame}
 
 \begin{frame}{行列積}
@@ -384,8 +410,52 @@
     むずそうなことやってるけど、結局は足し算と掛け算がいっぱいあるだけ。
 \end{frame}
 
-
-\subsection{量子力学との関係}
+\begin{frame}{矢印で理解するなら}
+    2回の回転・伸縮を合成
+    \begin{equation*}
+        \vcenter{\hbox{
+            \begin{tikzpicture}
+                \draw[thin, dotted](-1,-1)grid(2,2);
+                \draw[->, >=Stealth](-1,0)--(2,0);
+                \draw[->, >=Stealth](0,-1)--(0,2);
+                \draw[ultra thick, ->, red](0,0)--(1,0);
+                \draw[ultra thick, ->, blue](0,0)--(0,1);
+            \end{tikzpicture}
+        }}
+        \mapsto
+        \vcenter{\hbox{
+            \begin{tikzpicture}
+                \draw[thin, dotted](1,2)--(-.5,-1);
+                \draw[thin, dotted](-1,0)--(0,2);
+                \draw[thin, dotted](2,2)--(.5,-1);
+                \draw[thin, dotted](2,0)--(1.5,-1);
+                \draw[thin, dotted](-1,2)--++(3,0);
+                \draw[thin, dotted](-1,0)--++(3,0);
+                \draw[ultra thick, ->, red](0,0)--(1,2);
+                \draw[ultra thick, ->, blue](0,0)--(-1,0);
+            \end{tikzpicture}
+        }}
+        \mapsto
+        \vcenter{\hbox{
+            \begin{tikzpicture}
+                \draw[thin, dotted](-1,-1)--(2,.5);
+                \draw[thin, dotted](-1,-.5)--(2,1);
+                \draw[thin, dotted](-1,0)--(2,1.5);
+                \draw[thin, dotted](-1,.5)--(2,2);
+                \draw[thin, dotted](-1,1)--(1,2);
+                \draw[thin, dotted](-1,1.5)--(0,2);
+                \draw[thin, dotted](0,-1)--(2,0);
+                \draw[thin, dotted](1,-1)--(2,-.5);
+                \draw[thin, dotted](-1,-1)--++(0,3);
+                \draw[thin, dotted](0,-1)--++(0,3);
+                \draw[thin, dotted](1,-1)--++(0,3);
+                \draw[thin, dotted](2,-1)--++(0,3);
+                \draw[ultra thick, ->, blue](0,0)--(0,.5);
+                \draw[ultra thick, ->, red](0,0)--(1,.5);
+            \end{tikzpicture}
+        }}
+    \end{equation*}
+\end{frame}
 
 \begin{frame}{一方その頃量子力学では}
     状態を変換すると別の状態になる
@@ -415,6 +485,8 @@
 
 
 \section{こゆーほーてーしき}
+
+\subsection{固有方程式定義}
 
 \begin{frame}{わかる人には一発でわからせる固有方程式}
     \begin{dfn}{固有方程式}{}
@@ -544,7 +616,79 @@
 \end{frame}
 
 \begin{frame}{矢印で理解するなら}
+    $\hat{H}\ket{\phi}=E\ket{\phi}$
+    方向が変わらないベクトルが固有ベクトル。
+    \begin{equation*}
+        \vcenter{\hbox{
+            \begin{tikzpicture}
+                \draw[->, >=Stealth, ultra thick, red](0,0)--(1,0);
+                \draw[->, >=Stealth, ultra thick, blue](0,0)--(0,1);
+                \draw[->, >=Stealth, ultra thick](0,0)--(1,1);
+            \end{tikzpicture}
+        }}
+        \mapsto
+        \vcenter{\hbox{
+            \begin{tikzpicture}
+                \draw[->, >=Stealth, ultra thick, blue](0,0)--(1,2);
+                \draw[->, >=Stealth, ultra thick, red](0,0)--(2,1);
+                \draw[->, >=Stealth, ultra thick](0,0)--({sqrt(5)},{sqrt(5)});
+            \end{tikzpicture}
+        }}
+    \end{equation*}
+
 \end{frame}
+
+
+\section{考えたい理論体系}
+
+\begin{frame}{要請}
+    これから考える理論体系が満たすべきもの
+    \begin{enumerate}
+        \item 「物理量」が\textbf{一般には複数だが限定された}「測定値」を持つ
+        \item どんな「物理量」にも\textbf{「測定値」がただ一つしか生じない}状態ベクトルが存在する
+        \item 任意の状態ベクトルは「測定値」がただ一つしか生じない状態ベクトルたちの\textbf{線型結合}で書ける
+        \item ある状態ベクトルの「測定値」が出る確率は、その「測定値」がただ一つしか生じない要請2の状態ベクトルと元の状態ベクトルだけで計算できる
+    \end{enumerate}
+    何を言ってるかわからないと思うので説明します。
+\end{frame}
+
+\begin{frame}{要請1}
+    \begin{requirement}
+        「物理量」が\textbf{一般には複数だが限定された}「測定値」を持つ
+    \end{requirement}
+    ある状態ベクトルに「測定」を施すと、「測定値」セットのうちどれかが出てくる。
+    \begin{figure}
+        \centering
+        \includegraphics[width=5cm]{measurement.png}
+    \end{figure}
+    一般に測定ごとに結果が変わる。
+\end{frame}
+
+\begin{frame}{要請2}
+    \begin{requirement}
+        どんな「物理量」にも\textbf{「測定値」がただ一つしか生じない}状態ベクトルが存在する
+    \end{requirement}
+    何回「測定」を繰り返しても「測定値セット」のうちの1つだけしか出てこない。
+    \begin{figure}
+        \centering
+        \includegraphics[width=5cm]{eigenmeasurement.png}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{要請4}
+    \begin{requirement}
+        ある状態ベクトルの「測定値」が出る確率は、その「測定値」がただ一つしか生じない要請2の状態ベクトルと元の状態ベクトルだけで計算できる。
+    \end{requirement}
+    状態ベクトル$\ket{\psi}$で「物理量」$\hat{A}$を測定して「測定値」$a$が出る確率
+
+    $\longleftarrow$
+    $\ket{\psi}$
+    \&
+    「物理量」$\hat{A}$を「測定」すると常に$a$しか出ない状態ベクトル$\ket{a}$
+\end{frame}
+
+
+
 
 \begin{frame}{期待値ってなに?}
     \begin{equation*}
