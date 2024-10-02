@@ -638,17 +638,30 @@
 
 \end{frame}
 
+\begin{frame}{対角化}
+    以下我々が扱う行列は固有値が斜めに並んだだけの行列で表せることが知られている。
+    \begin{example}
+        固有値が$\{1,5,7\}$の固有方程式はうまく変形することで
+        \begin{equation*}
+            \hat{U}\mqty[\diag{1,5,7}]\hat{U}^\dag\ket
+        \end{equation*}
+    \end{example}
+\end{frame}
 
-\section{考えたい理論体系}
+
+\section{りろんたいけー}
+
+\subsection{要請}
 
 \begin{frame}{要請}
-    これから考える理論体系が満たすべきもの
-    \begin{enumerate}
-        \item 「物理量」が\textbf{一般には複数だが限定された}「測定値」を持つ
-        \item どんな「物理量」にも\textbf{「測定値」がただ一つしか生じない}状態ベクトルが存在する
-        \item 任意の状態ベクトルは「測定値」がただ一つしか生じない状態ベクトルたちの\textbf{線型結合}で書ける
-        \item ある状態ベクトルの「測定値」が出る確率は、その「測定値」がただ一つしか生じない要請2の状態ベクトルと元の状態ベクトルだけで計算できる
-    \end{enumerate}
+    \begin{requirement}
+        \begin{enumerate}
+            \item 「物理量」が\textbf{一般には複数だが限定された}「測定値」を持つ
+            \item どんな「物理量」にも\textbf{「測定値」がただ一つしか生じない}状態ベクトルが存在する
+            \item 任意の状態ベクトルは「測定値」がただ一つしか生じない状態ベクトルたちの\textbf{線型結合}で書ける
+            \item ある状態ベクトルの「測定値」が出る確率は、その「測定値」がただ一つしか生じない要請2の状態ベクトルと元の状態ベクトルだけで計算できる
+        \end{enumerate}
+    \end{requirement}
     何を言ってるかわからないと思うので説明します。
 \end{frame}
 
@@ -675,19 +688,45 @@
     \end{figure}
 \end{frame}
 
+\begin{frame}{要請3}
+    \begin{requirement}
+        任意の状態ベクトルは「測定値」がただ一つしか生じない状態ベクトルたちの\textbf{線型結合}で書ける
+    \end{requirement}
+    \begin{equation*}
+        \text{測定値}=\{1, 5, 7\}
+        \Longrightarrow
+        \ket{\psi}=c_1\ket{1}+c_5\ket{5}+c_7\ket{7}
+    \end{equation*}
+    こういうのを「$\ket{1}, \ket{5}, \ket{7}$を混ぜる」とか言います。
+\end{frame}
+
 \begin{frame}{要請4}
     \begin{requirement}
         ある状態ベクトルの「測定値」が出る確率は、その「測定値」がただ一つしか生じない要請2の状態ベクトルと元の状態ベクトルだけで計算できる。
     \end{requirement}
-    状態ベクトル$\ket{\psi}$で「物理量」$\hat{A}$を測定して「測定値」$a$が出る確率
+    状態ベクトル$\ket{\psi}$で測定値セット$\{1, 5, 7\}$のうち$5$だけが出る確率
 
     $\longleftarrow$
-    $\ket{\psi}$
-    \&
-    「物理量」$\hat{A}$を「測定」すると常に$a$しか出ない状態ベクトル$\ket{a}$
+
+    $\ket{\psi}$ \& $\ket{5}$で計算可能。
 \end{frame}
 
 
+\subsection{帰結}
+
+\begin{frame}{物理量の表し方}
+    唐突ですが、物理量を測定値セットが固有値になるような行列で表してみます。
+    \begin{description}
+        \item[要請1] 「物理量」が一般には複数だが限定された「測定値」を持つ
+        \item[要請2] どんな「物理量」にも「測定値」がただ一つしか生じない状態ベクトルが存在する
+    \end{description}
+    固有方程式を使うとうまく表せる。
+
+    物理量$\hat{O}$の固有値
+    \begin{equation}
+        \hat{O}\ket{}
+    \end{equation}
+\end{frame}
 
 
 \begin{frame}{期待値ってなに?}
@@ -803,6 +842,8 @@
 
 
 \section{ひょーげんろん}
+
+
 
 \section{ぶんるいもんだい}
 
