@@ -4,6 +4,8 @@
 \usetheme{Rochester}
 
 \newtheorem*{requirement}{要請}
+\newtheorem*{them}{定理}
+\newtheorem*{defn}{定義}
 
 \setbeamertemplate{footline}[frame number]
 \AtBeginSection[]{
@@ -160,33 +162,33 @@
     脚が出てないので状態ベクトルじゃない。
 \end{frame}
 
+% \begin{frame}{一方その頃量子力学では}
+%     量子力学では, すべての情報はベクトルが持っている.
+
+%     状態ベクトル＝状態。
+%     \begin{prop*}{測定により$\ket{\psi}$が測定される確率}{}
+%         \begin{equation*}
+%             P_\psi
+%             \propto
+%             \braket{\psi}
+%             =
+%             \vcenter{\hbox{
+%                 \begin{tikzpicture}
+%                     \node at(0,0)[draw,rectangle](ket){$\ket{\psi}$};
+%                     \node at(-1,0)[draw,rectangle](bra){$\bra{\psi}$};
+%                     \draw(bra.east)--(ket.west);
+%                 \end{tikzpicture}
+%             }}
+%         \end{equation*}
+%     \end{prop*}
+
+%     状態って???
+
+%     $\rightarrow$詳しい話はこの後
+% \end{frame}
+
 
 \subsection{たしざん・かけざんがいっぱい}
-
-\begin{frame}{一方その頃量子力学では}
-    量子力学では, すべての情報はベクトルが持っている.
-
-    状態ベクトル＝状態。
-    \begin{prop*}{測定により$\ket{\psi}$が測定される確率}{}
-        \begin{equation*}
-            P_\psi
-            \propto
-            \braket{\psi}
-            =
-            \vcenter{\hbox{
-                \begin{tikzpicture}
-                    \node at(0,0)[draw,rectangle](ket){$\ket{\psi}$};
-                    \node at(-1,0)[draw,rectangle](bra){$\bra{\psi}$};
-                    \draw(bra.east)--(ket.west);
-                \end{tikzpicture}
-            }}
-        \end{equation*}
-    \end{prop*}
-
-    状態って???
-
-    $\rightarrow$詳しい話はこの後
-\end{frame}
 
 \begin{frame}{行列の状態ベクトルへの作用}
     \begin{equation*}
@@ -486,7 +488,7 @@
 
 \section{こゆーほーてーしき}
 
-\subsection{固有方程式定義}
+\subsection{定義}
 
 \begin{frame}{わかる人には一発でわからせる固有方程式}
     \begin{dfn}{固有方程式}{}
@@ -560,6 +562,8 @@
     \end{itemize}
     $H$を決めると$(E, \ket{\phi})$の組が (一般には複数個) 出現
 \end{frame}
+
+\subsection{例}
 
 \begin{frame}{例}
     \begin{equation*}
@@ -638,12 +642,97 @@
 
 \end{frame}
 
+\subsection{対角化と縮退}
+
 \begin{frame}{対角化}
     以下我々が扱う行列は固有値が斜めに並んだだけの行列で表せることが知られている。
     \begin{example}
-        固有値が$\{1,5,7\}$の固有方程式はうまく変形することで
+        固有値が$\{1,5,7\}$の行列はうまく変形することで
         \begin{equation*}
-            \hat{U}\mqty[\diag{1,5,7}]\hat{U}^\dag\ket
+            \mqty[\dmat{1,5,7}]
+        \end{equation*}
+        の形になる。
+        固有値, 固有ベクトルは
+        \begin{equation*}
+            \qty(1, \mqty[1 \\ 0 \\ 0]),
+            \qquad
+            \qty(5, \mqty[0 \\ 1 \\ 0]),
+            \qquad
+            \qty(7, \mqty[0 \\ 0 \\ 1]).
+        \end{equation*}
+    \end{example}
+\end{frame}
+
+\begin{frame}{異なる固有値の内積}
+    \begin{them}
+        固有値が異なる固有ベクトルは直交
+    \end{them}
+    \begin{equation*}
+        \begin{split}
+            o_1\braket{o_1}{o_2}
+            &=
+            (\bra{o_1}\hat{O})\ket{o_2}
+            \\
+            &=
+            \bra{o_1}(\hat{O}\ket{o_2})
+            =
+            o_2\braket{o_1}{o_2}
+        \end{split}
+    \end{equation*}
+    \begin{equation*}
+        \therefore
+        (o_1-o_2)\braket{o_1}{o_2}=0.
+    \end{equation*}
+    $o_1\neq o_2$では$\braket{o_1}{o_2}=0$.
+\end{frame}
+
+\begin{frame}{ハミルトニアン}
+    ハミルトニアン:「エネルギー」を固有値にもつ行列
+    \begin{equation*}
+        \underset{\text{ハミルトニアン}}{\hat{H}}
+        \ket{E}
+        =
+        \underset{\text{エネルギー}}{E}
+        \underset{\text{エネルギー固有状態}}{\ket{E}}
+    \end{equation*}
+\end{frame}
+
+\begin{frame}{縮退}
+    \begin{defn}{縮退}
+        状態$\ket{E;1},\ket{E;2}$が共にハミルトニアンの固有値$E$の固有状態ベクトルでありながら
+        \begin{equation*}
+            \braket{E;1}{E;2}\braket{E;2}{E;1}
+            \neq
+            \braket{E;1}{E;1}\braket{E;2}{E;2}
+        \end{equation*}
+        を満たすとき、$\ket{E;1}, \ket{E;2}$は\red{\textbf{縮退}}するという。
+    \end{defn}
+\end{frame}
+
+\begin{frame}{縮退: 例}
+    \begin{example}
+        \begin{equation*}
+            \hat{H}
+            =
+            \mqty[0 & 1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 1]
+        \end{equation*}
+        の固有値・固有ベクトルは
+        \begin{equation*}
+            \qty(E,\ket{E})
+            =
+            \qty(1,\mqty[1 \\ 1 \\ 0]),
+            \quad
+            \qty(1,\mqty[0 \\ 0 \\ 1]),
+            \quad
+            \qty(-1,\mqty[1 \\ -1 \\ 0]).
+        \end{equation*}
+        \begin{equation*}
+            \mqty[1 & 1 & 0]\mqty[0 \\ 0 \\ 1]
+            =0
+            \leq
+            \mqty[1 & 1 & 0]\mqty[1 \\ 1 \\ 0]
+            \mqty[0 & 0 & 1]\mqty[0 \\ 0 \\ 1]
+            =2
         \end{equation*}
     \end{example}
 \end{frame}
@@ -658,7 +747,7 @@
         \begin{enumerate}
             \item 「物理量」が\textbf{一般には複数だが限定された}「測定値」を持つ
             \item どんな「物理量」にも\textbf{「測定値」がただ一つしか生じない}状態ベクトルが存在する
-            \item 任意の状態ベクトルは「測定値」がただ一つしか生じない状態ベクトルたちの\textbf{線型結合}で書ける
+            \item 任意の状態ベクトルは「測定値」がただ一つしか生じない状態ベクトルたちの\textbf{重ね合わせ}で書ける
             \item ある状態ベクトルの「測定値」が出る確率は、その「測定値」がただ一つしか生じない要請2の状態ベクトルと元の状態ベクトルだけで計算できる
         \end{enumerate}
     \end{requirement}
@@ -690,7 +779,7 @@
 
 \begin{frame}{要請3}
     \begin{requirement}
-        任意の状態ベクトルは「測定値」がただ一つしか生じない状態ベクトルたちの\textbf{線型結合}で書ける
+        任意の状態ベクトルは「測定値」がただ一つしか生じない状態ベクトルたちの\textbf{重ね合わせ}で書ける
     \end{requirement}
     \begin{equation*}
         \text{測定値}=\{1, 5, 7\}
@@ -704,144 +793,258 @@
     \begin{requirement}
         ある状態ベクトルの「測定値」が出る確率は、その「測定値」がただ一つしか生じない要請2の状態ベクトルと元の状態ベクトルだけで計算できる。
     \end{requirement}
-    状態ベクトル$\ket{\psi}$で測定値セット$\{1, 5, 7\}$のうち$5$だけが出る確率
+    状態ベクトル$\ket{\psi}$で測定値セット$\{1, 5, 7\}$のうち$5$が出る確率
 
     $\longleftarrow$
-
     $\ket{\psi}$ \& $\ket{5}$で計算可能。
 \end{frame}
 
 
-\subsection{帰結}
+\subsection{物理量の評価}
 
 \begin{frame}{物理量の表し方}
-    唐突ですが、物理量を測定値セットが固有値になるような行列で表してみます。
-    \begin{description}
-        \item[要請1] 「物理量」が一般には複数だが限定された「測定値」を持つ
-        \item[要請2] どんな「物理量」にも「測定値」がただ一つしか生じない状態ベクトルが存在する
-    \end{description}
-    固有方程式を使うとうまく表せる。
-
-    物理量$\hat{O}$の固有値
-    \begin{equation}
-        \hat{O}\ket{}
-    \end{equation}
+    \begin{enumerate}
+        \item 物理量を、測定値が固有値の行列で表す
+        \item 要請3『任意の状態ベクトルは「測定値」がただ一つしか生じない状態ベクトルたちの\textbf{重ね合わせ}で書ける』に従って、状態ベクトルを分解
+        \item 分解した固有状態ベクトルの固有値が測定値になり得る
+    \end{enumerate}
+    \begin{example}
+        固有値$\{1,5,7\}$の物理量$\hat{O}$を状態
+        \begin{equation*}
+            \ket{\psi}
+            =
+            c_1\ket{1}+c_5\ket{5}
+        \end{equation*}
+        で測定すると、測定値は1 or 5.
+    \end{example}
 \end{frame}
 
-
-\begin{frame}{期待値ってなに?}
+\begin{frame}{特定の測定値を出す確率}
+    物理量$\hat{O}$の固有値$\{o_1,o_2,\dots\}$とその固有ベクトル$\{\ket{o_1}, \ket{o_2}, \dots\}$.
+    \begin{defn}
+        状態$\ket{\psi}$で$\hat{O}$を測定して固有値$o_1$が出る確率:
+        \begin{equation*}
+            P_{o_1}=\frac{|\braket{o_1}{\psi}|^2}{|\braket{\psi}|^2}
+            =
+            \frac{
+                \qty|
+                    \vcenter{\hbox{
+                        \begin{tikzpicture}
+                            \node at(0,0)[draw,rectangle](o){$\bra{o_1}$};
+                            \node at(1,0)[draw,rectangle](psi){$\ket{\psi}$};
+                            \draw(o.east)--(psi.west);
+                        \end{tikzpicture}
+                    }}
+                |^2
+            }{
+                \qty|
+                    \vcenter{\hbox{
+                        \begin{tikzpicture}
+                            \node at(0,0)[draw,rectangle](o){$\bra{\psi}$};
+                            \node at(1,0)[draw,rectangle](psi){$\ket{\psi}$};
+                            \draw(o.east)--(psi.west);
+                        \end{tikzpicture}
+                    }}
+                |^2
+            }.
+        \end{equation*}
+    \end{defn}
+    固有状態ベクトルでは100\%固有値が出る:
     \begin{equation*}
-        \ev{\hat{H}}{\psi}
-        =
-        \vcenter{\hbox{
-            \begin{tikzpicture}
-                \node at(0,0)[draw, rectangle](H){$\hat{H}$};
-                \node at(1.5,0)[draw, rectangle](ket){$\ket{\psi}$};
-                \node at(-1.5,0)[draw, rectangle](bra){$\bra{\psi}$};
-                \draw(H.west)--(bra.east);
-                \draw(H.east)--(ket.west);
-            \end{tikzpicture}
-        }}
-    \end{equation*}
-    期待値に見える?
-
-    → 固有状態ベクトルに直せばわかる!
-\end{frame}
-
-\begin{frame}{固有方程式で見る期待値}
-    $\hat{H}$の固有値$E_1,E_2,\dots$の固有ベクトル$\ket{E_1},\ket{E_2},\dots$により
-    \begin{equation*}
-        \vcenter{\hbox{
-            \begin{tikzpicture}
-                \node at(1.5,0)[draw, rectangle](ket){$\ket{\psi}$};
-                \draw(ket.west)--++(-.5,0);
-            \end{tikzpicture}
-        }}
-        =
-        c_1
-        \vcenter{\hbox{
-            \begin{tikzpicture}
-                \node at(1.5,0)[draw, rectangle](ket){$\ket{E_1}$};
-                \draw(ket.west)--++(-.5,0);
-            \end{tikzpicture}
-        }}
-        +
-        c_2
-        \vcenter{\hbox{
-            \begin{tikzpicture}
-                \node at(1.5,0)[draw, rectangle](ket){$\ket{E_2}$};
-                \draw(ket.west)--++(-.5,0);
-            \end{tikzpicture}
-        }}
-        +
-        \cdots
-    \end{equation*}
-    と展開すると、
-    \begin{equation*}
-        \begin{split}
-            &
-            \vcenter{\hbox{
-                \begin{tikzpicture}
-                    \node at(0,0)[draw, rectangle](H){$\hat{H}$};
-                    \node at(1.,0)[draw, rectangle](ket){$\ket{\psi}$};
-                    \node at(-1.,0)[draw, rectangle](bra){$\bra{\psi}$};
-                    \draw(H.west)--(bra.east);
-                    \draw(H.east)--(ket.west);
-                \end{tikzpicture}
-            }}
-            \\
-            &=
-            c_1
-            \vcenter{\hbox{
-                \begin{tikzpicture}
-                    \node at(0,0)[draw, rectangle](H){$\hat{H}$};
-                    \node at(1.,0)[draw, rectangle](ket){$\ket{E_1}$};
-                    \node at(-1.,0)[draw, rectangle](bra){$\bra{\psi}$};
-                    \draw(H.west)--(bra.east);
-                    \draw(H.east)--(ket.west);
-                \end{tikzpicture}
-            }}
-            +
-            c_2
-            \vcenter{\hbox{
-                \begin{tikzpicture}
-                    \node at(0,0)[draw, rectangle](H){$\hat{H}$};
-                    \node at(1.,0)[draw, rectangle](ket){$\ket{E_2}$};
-                    \node at(-1.,0)[draw, rectangle](bra){$\bra{\psi}$};
-                    \draw(H.west)--(bra.east);
-                    \draw(H.east)--(ket.west);
-                \end{tikzpicture}
-            }}
-            +
-            \cdots
-            \\
-            &=
-            E_1c_1
-            \vcenter{\hbox{
-                \begin{tikzpicture}
-                    \node at(0,0)[draw,rectangle](ket){$\ket{E_1}$};
-                    \node at(-1,0)[draw,rectangle](bra){$\bra{\psi}$};
-                    \draw(ket.west)--(bra.east);
-                \end{tikzpicture}
-            }}
-            +
-            E_2c_2
-            \vcenter{\hbox{
-                \begin{tikzpicture}
-                    \node at(0,0)[draw,rectangle](ket){$\ket{E_2}$};
-                    \node at(-1,0)[draw,rectangle](bra){$\bra{\psi}$};
-                    \draw(ket.west)--(bra.east);
-                \end{tikzpicture}
-            }}
-            +
-            \cdots
-        \end{split}
+        P_{o_1}=\frac{\braket{o_1}}{\braket{o_1}}=1,
+        \qquad
+        P_{o_2}=\frac{\braket{o_2}{o_1}}{\braket{o_1}}=0.
     \end{equation*}
 \end{frame}
 
+\begin{frame}{期待値}
+    \begin{defn}{期待値}
+        \begin{equation*}
+            \text{期待値}=\sum\text{値}\times\text{確率}
+        \end{equation*}
+    \end{defn}
+    \begin{example}
+        状態$\ket{\psi}=c_1\ket{1}+c_5\ket{5}$なら、
+        \begin{equation*}
+            \begin{split}
+                \ev{\hat{O}}{\psi}
+                &=
+                \vcenter{\hbox{
+                    \begin{tikzpicture}
+                        \node at (0,0)[draw,rectangle](O){$\hat{O}$};
+                        \node at (-1,0)[draw,rectangle](left){$\bra{\psi}$};
+                        \node at (1,0)[draw,rectangle](right){$\ket{\psi}$};
+                        \draw(left.east)--(O.west)(O.east)--(right.west);
+                    \end{tikzpicture}
+                }}
+                \\
+                &=
+                (\bra{1}c_1^\ast+\bra{5}c_5^\ast)\hat{O}(c_1\ket{1}+c_5\ket{5})
+                \\
+                &=
+                |c_1|^2\ev{\hat{O}}{1}
+                +
+                c_1^\ast c_5\cdot5\bra{1}\ket{5}
+                +
+                c_5^\ast c_1\cdot1\bra{5}\ket{1}
+                +
+                |c_5|^2\ev{\hat{O}}{5}
+                \\
+                &=
+                1\frac{|\braket{1}{\psi}|^2}{|\braket{\psi}|^2}
+                +
+                5\frac{|\braket{5}{\psi}|^2}{|\braket{\psi}|^2}
+                =
+                1P_1+5P_5
+            \end{split}
+        \end{equation*}
+    \end{example}
+\end{frame}
 
 
 \section{ひょーげんろん}
+
+\subsection{対称性}
+
+\begin{frame}{状態ベクトルの変換}
+    \begin{requirement}{要請3}
+        任意の状態ベクトルは「測定値」がただ一つしか生じない状態ベクトルたちの\textbf{重ね合わせ}で書ける
+    \end{requirement}
+    重ね合わせ＝行列の状態ベクトルへの作用で、大きさを変えないもの
+    \begin{equation*}
+        \ket{\psi}
+        \to
+        \hat{U}\ket{\psi}
+        =
+        \ket{U\psi}
+    \end{equation*}
+    \begin{equation*}
+        \text{w/ }\braket{U\psi}=\braket{\psi}
+    \end{equation*}
+\end{frame}
+
+\begin{frame}{例: 回転}
+    \begin{equation*}
+        \hat{U}_{45^\circ}
+        =
+        \frac{1}{\sqrt{2}}\mqty[1 & -1 \\ 1 & 1]
+    \end{equation*}
+    \begin{equation*}
+        \vcenter{\hbox{
+            \begin{tikzpicture}
+                \draw[thin, dotted](-1,-1)grid(2,2);
+                \draw[ultra thick, red, ->, >=Stealth](0,0)--(1,0);
+                \draw[ultra thick, blue, ->, >=Stealth](0,0)--(0,1);
+            \end{tikzpicture}
+        }}
+        \to
+        \vcenter{\hbox{
+            \begin{tikzpicture}[rotate=-45]
+                \draw[thin, dotted, ->, >=Stealth](-1,-1)grid(2,2);
+                \draw[ultra thick, red, ->, >=Stealth](0,0)--(0:1);
+                \draw[ultra thick, blue, ->, >=Stealth](0,0)--(90:1);
+            \end{tikzpicture}
+        }}
+    \end{equation*}
+\end{frame}
+
+\begin{frame}{状態の対称性}
+    \begin{example}
+        \begin{equation*}
+            \ket{\leftrightarrow}
+            :=
+            \frac{\ket{\rightarrow}+\hat{U}_{180^\circ}\ket{\rightarrow}}{\sqrt{2}}
+        \end{equation*}
+        は$180^\circ$回転で不変
+        \begin{equation*}
+            \hat{U}_{180^\circ}\ket{\leftrightarrow}
+            =
+            \frac{\hat{U}_{180^\circ}\ket{\rightarrow}+\hat{U}_{360^\circ}\ket{\rightarrow}}{\sqrt{2}}
+            =
+            \ket{\leftrightarrow}
+        \end{equation*}
+        $\longrightarrow180^\circ$回転対称
+    \end{example}
+\end{frame}
+
+\begin{frame}{理論の対称性}
+    もし\red{どの}エネルギー固有状態$\ket{E}$を$180^\circ$回転した$\ket{UE}=\hat{U}_{180^\circ}\ket{E}$もエネルギーが変わらないなら、
+    \begin{equation*}
+        \begin{split}
+            \vcenter{\hbox{
+                \begin{tikzpicture}
+                    \node at(0,0)[draw,rectangle](U){$\hat{U}$};
+                    \node at(1,0)[draw,rectangle](H){$\hat{H}$};
+                    \node at(2,0)[draw,rectangle](E){$\ket{E}$};
+                    \draw(U.west)--++(-.5,0)(U.east)--(H.west)(H.east)--(E.west);
+                \end{tikzpicture}
+            }}
+            &=
+            E
+            \vcenter{\hbox{
+                \begin{tikzpicture}
+                    \node at(0,0)[draw,rectangle](U){$\hat{U}$};
+                    \node at(1,0)[draw,rectangle](E){$\ket{E}$};
+                    \draw(U.west)--++(-.5,0)(U.east)--(E.west);
+                \end{tikzpicture}
+            }}
+            \\
+            &=
+            E
+            \vcenter{\hbox{
+                \begin{tikzpicture}
+                    \node at(0,0)[draw,rectangle](U){$\ket{UE}$};
+                    % \node at(1,0)[draw,rectangle](E){$\ket{UE}$};
+                    \draw(U.west)--++(-.5,0);
+                \end{tikzpicture}
+            }}
+            \\
+            &=
+            \vcenter{\hbox{
+                \begin{tikzpicture}
+                    \node at(0,0)[draw,rectangle](U){$\ket{UE}$};
+                    \node at(-1,0)[draw,rectangle](H){$\hat{H}$};
+                    \draw(H.west)--++(-.5,0)(H.east)--(U.west);
+                \end{tikzpicture}
+            }}
+            \\
+            &=
+            \vcenter{\hbox{
+                \begin{tikzpicture}
+                    \node at(0,0)[draw,rectangle](U){$\hat{H}$};
+                    \node at(1,0)[draw,rectangle](H){$\hat{U}$};
+                    \node at(2,0)[draw,rectangle](E){$\ket{E}$};
+                    \draw(U.west)--++(-.5,0)(U.east)--(H.west)(H.east)--(E.west);
+                \end{tikzpicture}
+            }}
+        \end{split}
+    \end{equation*}
+    \begin{defn}[理論の対称性]
+        \begin{equation*}
+            \hat{H}\hat{U}=\hat{U}\hat{H}
+        \end{equation*}
+        $\Longleftrightarrow$理論$\hat{H}$は$\hat{U}$で対称
+    \end{defn}
+\end{frame}
+
+\begin{frame}{例}
+    \begin{example}
+        \begin{equation*}
+            \hat{H}=\mqty[\dmat{1,-1,-1,1}],
+            \qquad
+            \hat{U}=\mqty[ & & & 1 \\ & & 1 & \\ & 1 & & \\ 1 & & & ]
+        \end{equation*}
+        \begin{equation*}
+            \hat{H}\hat{U}
+            =
+            \mqty[ & & & 1 \\ & & -1 & \\ & -1 & & \\ 1 & & & ]
+            =
+            \hat{U}\hat{H}
+        \end{equation*}
+    \end{example}
+\end{frame}
+
+\subsection{自発的対称性の破れ}
 
 
 
