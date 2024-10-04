@@ -6,13 +6,14 @@
 \newtheorem*{requirement}{要請}
 \newtheorem*{them}{定理}
 \newtheorem*{defn}{定義}
+\newtheorem*{goal}{目標}
 
 \setbeamertemplate{footline}[frame number]
 \AtBeginSection[]{
     \frame{\tableofcontents[currentsection, hideallsubsections]} %目次スライド
 }
 
-\title{たしざん・かけざんだけでまなぶりょーしりきがく}
+\title{たしざん・かけざんだけでまなぶ\\りょーしりきがく}
 \author{低音}
 
 \begin{document}
@@ -21,23 +22,47 @@
     \titlepage
 \end{frame}
 
-\begin{frame}{2025年物性物理夏の学校やります!!!}
+\begin{frame}{2025年物性若手夏の学校やります!!!}
     \begin{itemize}
         \item 全国の物性物理関連の大学院生が集結
         \item 4泊5日の集中合宿
         \item 講義・集中ゼミで最先端研究をキャッチアップ
         \item 学会形式で自分の研究を発表
     \end{itemize}
+    若手研究者が研究の道を本格的に歩み始める第一歩になります!!!
+
     \textbf{\red{参加・斡旋・各種協賛お願いします!!!}}
+
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.6\linewidth]{bussei-tweet.png}
+    \end{figure}
 \end{frame}
 
 \begin{frame}{自己紹介: 低音}
-    \begin{itemize}
-        \item 京大 基礎物理学研究所 M1
-        \item 専門は凝縮系理論物理
-        \item 登山・自転車が趣味
-        \item note「ペンローズのグラフ記法」
-    \end{itemize}
+    \begin{columns}
+        \begin{column}{0.6\textwidth}
+            \begin{itemize}
+                \item 京大 基礎物理学研究所 M1
+                \item 専門は凝縮系理論物理
+                \item 登山・自転車が趣味
+                \item note「ペンローズのグラフ記法」
+                \item 第70回物性若手夏の学校 副代表
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.3\textwidth}
+            \includegraphics[width=1.2\linewidth]{38A299D4-7495-44B7-B699-E1AF92AFC245_1_105_c.jpeg}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{このセミナーで目指すもの}
+    \begin{goal}
+        量子力学における自発的対称性の破れを理解する
+    \end{goal}
+
+    \includegraphics[width=0.1\linewidth]{Nobel_prize_medal.svg.png}
+    南部陽一郎・小林誠・益川敏英 ノーベル賞(2008)
 \end{frame}
 
 \begin{frame}{このセミナーで登場しないもの}
@@ -66,14 +91,16 @@
             \item ユニタリ行列
         \end{itemize}
     \end{enumerate}
-    \textbf{計算できるようになると、なぜか感覚を掴めてくる}
+    難しそうだが、全て\textbf{\red{たしざんとかけざん}}。
+
+    \textbf{計算できるようになると、なぜか量子力学の感覚を掴めてくる}
 \end{frame}
 
 
 
 \section{べくとるとぎょーれつ}
 
-\subsection{たしざん・かけざんのふくしゅう}
+% \subsection{たしざん・かけざんのふくしゅう}
 
 
 \subsection{べくとる}
@@ -459,31 +486,31 @@
     \end{equation*}
 \end{frame}
 
-\begin{frame}{一方その頃量子力学では}
-    状態を変換すると別の状態になる
-    \begin{itemize}
-        \item 回転する
-        \item ズラす
-        \item 交換する
-    \end{itemize}
-    状態ベクトルを状態ベクトルに移すので、行列による作用で表せる
-    \begin{equation*}
-        \vcenter{\hbox{
-            \begin{tikzpicture}
-                \node at(1,0)[draw, rectangle](psi){$\ket{\psi}$};
-                \draw(psi.west)--++(-.5,0);
-            \end{tikzpicture}
-        }}
-        \mapsto
-        \vcenter{\hbox{
-            \begin{tikzpicture}
-                \node at(0,0)[draw, rectangle](H){$\hat{U}$};
-                \node at(1,0)[draw, rectangle](psi){$\ket{\psi}$};
-                \draw(H.east)--(psi.west)(H.west)--++(-.5,0);
-            \end{tikzpicture}
-        }}
-    \end{equation*}
-\end{frame}
+% \begin{frame}{一方その頃量子力学では}
+%     状態を変換すると別の状態になる
+%     \begin{itemize}
+%         \item 回転する
+%         \item ズラす
+%         \item 交換する
+%     \end{itemize}
+%     状態ベクトルを状態ベクトルに移すので、行列による作用で表せる
+%     \begin{equation*}
+%         \vcenter{\hbox{
+%             \begin{tikzpicture}
+%                 \node at(1,0)[draw, rectangle](psi){$\ket{\psi}$};
+%                 \draw(psi.west)--++(-.5,0);
+%             \end{tikzpicture}
+%         }}
+%         \mapsto
+%         \vcenter{\hbox{
+%             \begin{tikzpicture}
+%                 \node at(0,0)[draw, rectangle](H){$\hat{U}$};
+%                 \node at(1,0)[draw, rectangle](psi){$\ket{\psi}$};
+%                 \draw(H.east)--(psi.west)(H.west)--++(-.5,0);
+%             \end{tikzpicture}
+%         }}
+%     \end{equation*}
+% \end{frame}
 
 
 \section{こゆーほーてーしき}
@@ -491,7 +518,7 @@
 \subsection{定義}
 
 \begin{frame}{わかる人には一発でわからせる固有方程式}
-    \begin{dfn}{固有方程式}{}
+    \begin{defn}[固有方程式]
         \begin{equation*}
             \mqty[
                 H_{11} & \cdots & H_{1N}
@@ -535,7 +562,7 @@
                 \end{tikzpicture}
             }}
         \end{equation*}
-    \end{dfn}
+    \end{defn}
 \end{frame}
 
 \begin{frame}{固有方程式 定義のポイント}
@@ -597,7 +624,7 @@
 \end{frame}
 
 \begin{frame}{手を動かせ}
-    \begin{eg*}{$2\times2$でやってみよう!}{}
+    \begin{example}[$2\times2$でやってみよう!]
         \begin{equation*}
             \mqty[0 & 1 \\ 1 & 0]
             \mqty[1 \\ 1]
@@ -614,7 +641,7 @@
             =
             -\mqty[1 \\ -1]
         \end{equation*}
-    \end{eg*}
+    \end{example}
     一般に行列$\hat{H}$から固有値$E$と固有状態ベクトル$\ket{\phi}$を見つけるのは至難の業
     (原理的にはできるが計算が膨大)。
 \end{frame}
@@ -644,24 +671,24 @@
 
 \subsection{対角化と縮退}
 
-\begin{frame}{対角化}
-    以下我々が扱う行列は固有値が斜めに並んだだけの行列で表せることが知られている。
-    \begin{example}
-        固有値が$\{1,5,7\}$の行列はうまく変形することで
-        \begin{equation*}
-            \mqty[\dmat{1,5,7}]
-        \end{equation*}
-        の形になる。
-        固有値, 固有ベクトルは
-        \begin{equation*}
-            \qty(1, \mqty[1 \\ 0 \\ 0]),
-            \qquad
-            \qty(5, \mqty[0 \\ 1 \\ 0]),
-            \qquad
-            \qty(7, \mqty[0 \\ 0 \\ 1]).
-        \end{equation*}
-    \end{example}
-\end{frame}
+% \begin{frame}{対角化}
+%     以下我々が扱う行列は固有値が斜めに並んだだけの行列で表せることが知られている。
+%     \begin{example}
+%         固有値が$\{1,5,7\}$の行列はうまく変形することで
+%         \begin{equation*}
+%             \mqty[\dmat{1,5,7}]
+%         \end{equation*}
+%         の形になる。
+%         固有値, 固有ベクトルは
+%         \begin{equation*}
+%             \qty(1, \mqty[1 \\ 0 \\ 0]),
+%             \qquad
+%             \qty(5, \mqty[0 \\ 1 \\ 0]),
+%             \qquad
+%             \qty(7, \mqty[0 \\ 0 \\ 1]).
+%         \end{equation*}
+%     \end{example}
+% \end{frame}
 
 \begin{frame}{異なる固有値の内積}
     \begin{them}
@@ -686,24 +713,59 @@
     $o_1\neq o_2$では$\braket{o_1}{o_2}=0$.
 \end{frame}
 
-\begin{frame}{ハミルトニアン}
-    ハミルトニアン:「エネルギー」を固有値にもつ行列
+\begin{frame}{理論}
+    \begin{defn}[理論]
+        「エネルギー」を固有値にもつ行列$\hat{H}$
+    \end{defn}
     \begin{equation*}
-        \underset{\text{ハミルトニアン}}{\hat{H}}
-        \ket{E}
+        \vcenter{\hbox{
+            \begin{tikzpicture}
+                \node at(0,0)[draw,rectangle, red](H){$\red{\hat{H}}$};
+                \node at(1,0)[draw,rectangle](psi){$\ket{E}$};
+                \draw(H.west)--++(-.5,0)(H.east)--(psi.west);
+            \end{tikzpicture}
+        }}
         =
         \underset{\text{エネルギー}}{E}
-        \underset{\text{エネルギー固有状態}}{\ket{E}}
+        \vcenter{\hbox{
+            \begin{tikzpicture}
+                \node at(1,0)[draw,rectangle](psi){$\ket{E}$};
+                \node at(psi.south)[anchor=north, font=\scriptsize]{エネルギー固有状態};
+                \draw(psi.west)--++(-.5,0);
+            \end{tikzpicture}
+        }}
+    \end{equation*}
+    エネルギーを求めたければ、
+    \begin{equation*}
+        \frac{
+            \vcenter{\hbox{
+                \begin{tikzpicture}
+                    \node at(0,0)[draw,rectangle](H){$\hat{H}$};
+                    \node at(1,0)[draw,rectangle](ket){$\ket{\psi}$};
+                    \node at(-1,0)[draw,rectangle](bra){$\bra{\psi}$};
+                    \draw(bra.east)--(H.west)(H.east)--(ket.west);
+                \end{tikzpicture}
+            }}
+        }{
+            \vcenter{\hbox{
+                \begin{tikzpicture}
+                    \node at(1,0)[draw,rectangle](ket){$\ket{\psi}$};
+                    \node at(-1,0)[draw,rectangle](bra){$\bra{\psi}$};
+                    \draw(bra.east)--(ket.west);
+                \end{tikzpicture}
+            }}
+        }
+        =E
     \end{equation*}
 \end{frame}
 
 \begin{frame}{縮退}
     \begin{defn}{縮退}
-        状態$\ket{E;1},\ket{E;2}$が共にハミルトニアンの固有値$E$の固有状態ベクトルでありながら
+        状態$\ket{E;1},\ket{E;2}$が共に$\hat{H}$の固有値$E$の固有状態ベクトルでありながら
         \begin{equation*}
-            \braket{E;1}{E;2}\braket{E;2}{E;1}
-            \neq
-            \braket{E;1}{E;1}\braket{E;2}{E;2}
+            \ket{E;1}
+            \not\equiv
+            \ket{E;2}
         \end{equation*}
         を満たすとき、$\ket{E;1}, \ket{E;2}$は\red{\textbf{縮退}}するという。
     \end{defn}
@@ -727,12 +789,9 @@
             \qty(-1,\mqty[1 \\ -1 \\ 0]).
         \end{equation*}
         \begin{equation*}
-            \mqty[1 & 1 & 0]\mqty[0 \\ 0 \\ 1]
-            =0
-            \leq
-            \mqty[1 & 1 & 0]\mqty[1 \\ 1 \\ 0]
-            \mqty[0 & 0 & 1]\mqty[0 \\ 0 \\ 1]
-            =2
+            \mqty[1 \\ 1 \\ 0]
+            \not\equiv
+            \mqty[0 \\ 0 \\ 1]
         \end{equation*}
     \end{example}
 \end{frame}
@@ -745,9 +804,9 @@
 \begin{frame}{要請}
     \begin{requirement}
         \begin{enumerate}
-            \item 「物理量」が\textbf{一般には複数だが限定された}「測定値」を持つ
-            \item どんな「物理量」にも\textbf{「測定値」がただ一つしか生じない}状態ベクトルが存在する
-            \item 任意の状態ベクトルは「測定値」がただ一つしか生じない状態ベクトルたちの\textbf{重ね合わせ}で書ける
+            \item 「物理量」が\red{\textbf{一般には複数だが限定された}}「測定値」を持つ
+            \item どんな「物理量」にも\red{\textbf{「測定値」がただ一つしか生じない}}状態ベクトルが存在する
+            \item 任意の状態ベクトルは「測定値」がただ一つしか生じない状態ベクトルたちの\red{\textbf{重ね合わせ}}で書ける
             \item ある状態ベクトルの「測定値」が出る確率は、その「測定値」がただ一つしか生じない要請2の状態ベクトルと元の状態ベクトルだけで計算できる
         \end{enumerate}
     \end{requirement}
@@ -756,7 +815,7 @@
 
 \begin{frame}{要請1}
     \begin{requirement}
-        「物理量」が\textbf{一般には複数だが限定された}「測定値」を持つ
+        「物理量」が\red{\textbf{一般には複数だが限定された}}「測定値」を持つ
     \end{requirement}
     ある状態ベクトルに「測定」を施すと、「測定値」セットのうちどれかが出てくる。
     \begin{figure}
@@ -768,7 +827,7 @@
 
 \begin{frame}{要請2}
     \begin{requirement}
-        どんな「物理量」にも\textbf{「測定値」がただ一つしか生じない}状態ベクトルが存在する
+        どんな「物理量」にも\red{\textbf{「測定値」がただ一つしか生じない}}状態ベクトルが存在する
     \end{requirement}
     何回「測定」を繰り返しても「測定値セット」のうちの1つだけしか出てこない。
     \begin{figure}
@@ -779,7 +838,7 @@
 
 \begin{frame}{要請3}
     \begin{requirement}
-        任意の状態ベクトルは「測定値」がただ一つしか生じない状態ベクトルたちの\textbf{重ね合わせ}で書ける
+        任意の状態ベクトルは「測定値」がただ一つしか生じない状態ベクトルたちの\red{\textbf{重ね合わせ}}で書ける
     \end{requirement}
     \begin{equation*}
         \text{測定値}=\{1, 5, 7\}
@@ -809,7 +868,7 @@
         \item 分解した固有状態ベクトルの固有値が測定値になり得る
     \end{enumerate}
     \begin{example}
-        固有値$\{1,5,7\}$の物理量$\hat{O}$を状態
+        固有値$\{1,5,7\}$の物理量を状態
         \begin{equation*}
             \ket{\psi}
             =
@@ -822,9 +881,9 @@
 \begin{frame}{特定の測定値を出す確率}
     物理量$\hat{O}$の固有値$\{o_1,o_2,\dots\}$とその固有ベクトル$\{\ket{o_1}, \ket{o_2}, \dots\}$.
     \begin{defn}
-        状態$\ket{\psi}$で$\hat{O}$を測定して固有値$o_1$が出る確率:
+        状態$\ket{\psi}$で$\hat{O}$を測定して測定値$o_1$が出る確率:
         \begin{equation*}
-            P_{o_1}=\frac{|\braket{o_1}{\psi}|^2}{|\braket{\psi}|^2}
+            P_{o_1}=\frac{|\braket{o_1}{\psi}|^2}{\braket{\psi}\braket{o_1}}
             =
             \frac{
                 \qty|
@@ -837,23 +896,28 @@
                     }}
                 |^2
             }{
-                \qty|
-                    \vcenter{\hbox{
-                        \begin{tikzpicture}
-                            \node at(0,0)[draw,rectangle](o){$\bra{\psi}$};
-                            \node at(1,0)[draw,rectangle](psi){$\ket{\psi}$};
-                            \draw(o.east)--(psi.west);
-                        \end{tikzpicture}
-                    }}
-                |^2
+                \vcenter{\hbox{
+                    \begin{tikzpicture}
+                        \node at(0,0)[draw,rectangle](o){$\bra{\psi}$};
+                        \node at(1,0)[draw,rectangle](psi){$\ket{\psi}$};
+                        \draw(o.east)--(psi.west);
+                    \end{tikzpicture}
+                }}
+                \vcenter{\hbox{
+                    \begin{tikzpicture}
+                        \node at(0,0)[draw,rectangle](o){$\bra{o_1}$};
+                        \node at(1,0)[draw,rectangle](psi){$\ket{o_1}$};
+                        \draw(o.east)--(psi.west);
+                    \end{tikzpicture}
+                }}
             }.
         \end{equation*}
     \end{defn}
     固有状態ベクトルでは100\%固有値が出る:
     \begin{equation*}
-        P_{o_1}=\frac{\braket{o_1}}{\braket{o_1}}=1,
+        P_{o_1}=\frac{|\braket{o_1}|^2}{\braket{o_1}\braket{o_1}}=1,
         \qquad
-        P_{o_2}=\frac{\braket{o_2}{o_1}}{\braket{o_1}}=0.
+        P_{o_2}=\frac{|\braket{o_2}{o_1}|^2}{\braket{o_1}\braket{o_2}}=0.
     \end{equation*}
 \end{frame}
 
@@ -864,7 +928,7 @@
         \end{equation*}
     \end{defn}
     \begin{example}
-        状態$\ket{\psi}=c_1\ket{1}+c_5\ket{5}$なら、
+        $|\braket{\psi}|=|\braket{o_1}|=1$の状態が$\ket{\psi}=c_1\ket{1}+c_5\ket{5}$なら、
         \begin{equation*}
             \begin{split}
                 \ev{\hat{O}}{\psi}
@@ -885,15 +949,17 @@
                 |c_1|^2\ev{\hat{O}}{1}
                 +
                 c_1^\ast c_5\cdot5\bra{1}\ket{5}
+                \\
+                &\qquad
                 +
                 c_5^\ast c_1\cdot1\bra{5}\ket{1}
                 +
                 |c_5|^2\ev{\hat{O}}{5}
                 \\
                 &=
-                1\frac{|\braket{1}{\psi}|^2}{|\braket{\psi}|^2}
+                1|\braket{1}{\psi}|^2
                 +
-                5\frac{|\braket{5}{\psi}|^2}{|\braket{\psi}|^2}
+                5|\braket{5}{\psi}|^2
                 =
                 1P_1+5P_5
             \end{split}
@@ -902,13 +968,13 @@
 \end{frame}
 
 
-\section{ひょーげんろん}
+\section{じはつてきたいしょーせーのやぶれ}
 
 \subsection{対称性}
 
 \begin{frame}{状態ベクトルの変換}
     \begin{requirement}{要請3}
-        任意の状態ベクトルは「測定値」がただ一つしか生じない状態ベクトルたちの\textbf{重ね合わせ}で書ける
+        任意の状態ベクトルは「測定値」がただ一つしか生じない状態ベクトルたちの\textbf{\red{重ね合わせ}}で書ける
     \end{requirement}
     重ね合わせ＝行列の状態ベクトルへの作用で、大きさを変えないもの
     \begin{equation*}
@@ -917,6 +983,15 @@
         \hat{U}\ket{\psi}
         =
         \ket{U\psi}
+    \end{equation*}
+    \begin{equation*}
+        \vcenter{\hbox{
+            \begin{tikzpicture}
+                \node at(0,0)[draw, rectangle](U){$\hat{U}$};
+                \node at(1,0)[draw, rectangle](psi){$\ket{\psi}$};
+                \draw(U.west)--++(-.5,0)(U.east)--(psi.west);
+            \end{tikzpicture}
+        }}
     \end{equation*}
     \begin{equation*}
         \text{w/ }\braket{U\psi}=\braket{\psi}
@@ -949,6 +1024,13 @@
 \end{frame}
 
 \begin{frame}{状態の対称性}
+    \begin{defn}[状態が変換$\hat{U}$で対称]
+        \begin{equation*}
+            \ket{\psi}
+            \equiv
+            \hat{U}\ket{\psi}
+        \end{equation*}
+    \end{defn}
     \begin{example}
         \begin{equation*}
             \ket{\leftrightarrow}
@@ -960,7 +1042,7 @@
             \hat{U}_{180^\circ}\ket{\leftrightarrow}
             =
             \frac{\hat{U}_{180^\circ}\ket{\rightarrow}+\hat{U}_{360^\circ}\ket{\rightarrow}}{\sqrt{2}}
-            =
+            \equiv
             \ket{\leftrightarrow}
         \end{equation*}
         $\longrightarrow180^\circ$回転対称
@@ -999,7 +1081,7 @@
                 \end{tikzpicture}
             }}
             \\
-            &=
+            &\equiv
             \vcenter{\hbox{
                 \begin{tikzpicture}
                     \node at(0,0)[draw,rectangle](U){$\ket{UE}$};
@@ -1020,9 +1102,7 @@
         \end{split}
     \end{equation*}
     \begin{defn}[理論の対称性]
-        \begin{equation*}
-            \hat{H}\hat{U}=\hat{U}\hat{H}
-        \end{equation*}
+        $\hat{H}\hat{U}=\hat{U}\hat{H}$
         $\Longleftrightarrow$理論$\hat{H}$は$\hat{U}$で対称
     \end{defn}
 \end{frame}
@@ -1041,13 +1121,155 @@
             =
             \hat{U}\hat{H}
         \end{equation*}
+        理論$\hat{H}$は変換$\hat{U}$を対称性にもつ。
     \end{example}
 \end{frame}
 
+
 \subsection{自発的対称性の破れ}
 
+\begin{frame}{基底状態}
+    \begin{defn}[基底状態]
+        理論$\hat{H}$の最小固有値を出す固有状態$\ket{E_0}$
+    \end{defn}
+    \begin{example}
+        \begin{equation*}
+            \hat{H}=\mqty[ & 1 \\ 1 & ]
+        \end{equation*}
+        固有値(=エネルギーの測定値)は$\pm1$.
+        最小のエネルギー$E=-1$を与える
+        \begin{equation*}
+            \ket{E_9}=\mqty[1 \\ -1]
+        \end{equation*}
+        が基底状態。
+    \end{example}
+    絶対零度では基底状態(の重ね合わせ)が実現する
+\end{frame}
 
+\begin{frame}{自発的対称性の破れ}
+    変換$\hat{U}$, 理論$\hat{H}$, 状態$\ket{\mathrm{\psi}}$に対して、
+    \begin{description}
+        \item[状態の対称性] $\ket{\psi}\equiv\hat{U}\ket{\psi}$
+        \item[理論の対称性] $\hat{H}\hat{U}=\hat{U}\hat{H}$
+    \end{description}
+    \begin{defn}[自発的対称性の破れ]
+        理論は対称性を守っているが、基底状態が対称性を破っていること
+    \end{defn}
+    \includegraphics[width=0.1\linewidth]{Nobel_prize_medal.svg.png}
+    南部陽一郎・小林誠・益川敏英のノーベル賞(2008)
+\end{frame}
 
-\section{ぶんるいもんだい}
+\begin{frame}{自発的対称性の破れ: 例}
+    \begin{example}
+        \begin{equation*}
+            \hat{H}
+            =
+            % \mqty[0 & -1 & 0 \\ -1 & 0 & 0 \\ 0 & 0 & -1]
+            \mqty[\dmat{1,-1,1,-1}],
+            \qquad
+            \hat{U}
+            =
+            \mqty[ & & 1 & \\ & & & 1 \\ 1 & & & \\ & 1 & & ]
+        \end{equation*}
+        $\hat{H}$の固有値は$\pm1$.
+        基底状態は\red{\textbf{2つ}}。
+        \begin{equation*}
+            \ket{\uparrow}
+            =
+            \mqty[0 \\ 1 \\ 0 \\ 0],
+            \qquad
+            \ket{\downarrow}
+            =
+            \mqty[0 \\ 0 \\ 0 \\ 1].
+        \end{equation*}
+        $\hat{H}\hat{U}=\hat{U}\hat{H}$だが$\hat{U}\ket{\uparrow}=\ket{\downarrow}\not\equiv\ket{\uparrow}$.
+        \textbf{\red{何が楽しい?}}
+    \end{example}
+\end{frame}
+
+\begin{frame}{物理的直感}
+    矢印の向きが揃った方が低エネルギーとする
+    \begin{equation*}
+        \vcenter{\hbox{
+            \begin{tikzpicture}
+                \draw(0,0)--(3,0);
+                \foreach\x in{0,1,...,3}{
+                    \draw[->, very thick](\x,-.5)--(\x,.5);
+                }
+            \end{tikzpicture}
+        }}
+        <
+        \vcenter{\hbox{
+            \begin{tikzpicture}
+                \draw(0,0)--(3,0);
+                \draw[->, very thick](0,-.5)--++(0,1);
+                \draw[->, very thick](1,.5)--++(0,-1);
+                \draw[->, very thick](2,-.5)--++(0,1);
+                \draw[->, very thick](3,.5)--++(0,-1);
+            \end{tikzpicture}
+        }}
+    \end{equation*}
+    理論は「揃え」としか言っていないのに、実現する状態は揃う向きが勝手に決まる
+
+    $\rightarrow$磁性の発現, 磁石のメカニズム
+\end{frame}
+
+\begin{frame}{相図}
+    対称性がわかると結構わかる
+    \begin{figure}
+        \centering
+        \begin{minipage}{0.45\linewidth}
+            \includegraphics[width=0.8\linewidth]{phase3.png}
+        \end{minipage}
+        \begin{minipage}{0.45\linewidth}
+            \includegraphics[width=0.8\linewidth]{phase-mag.png}
+        \end{minipage}
+    \end{figure}
+    \textbf{自発的対称性の破れだけでほとんどの線が引ける}
+\end{frame}
+
+\begin{frame}{次回予告}
+    相図の全ての線が自発的対称性の破れで書けると思っていた。
+
+    そう、量子ホール効果の出現までは...
+    
+    次回\textbf{「トポロジカル秩序の分類に制限を与える禁止定理」}
+\end{frame}
+
+\begin{frame}{量子力学の参考書}
+    \begin{itemize}
+        \item \textbf{清水明「新版 量子論の基礎」サイエンス社}
+        
+        今回の流れに沿っている。
+        数学的に厳密に寄せているのに、わかりやすい。
+        初学者にも勧められる。
+        \item \textbf{J. J. サクライ「現代の量子力学(上)」吉岡書店}
+        
+        今回つかったブラケット記法による有名書。
+        ゼミに便利。
+        一人で読むなら2冊目以降。
+        \item \textbf{猪木慶治・川合光「量子力学I」講談社}
+
+        今回扱わなかった波動関数表示で進める。
+        割と王道。
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{2025年物性若手夏の学校やります!!!}
+    \begin{itemize}
+        \item 全国の物性物理関連の大学院生が集結
+        \item 4泊5日の集中合宿
+        \item 講義・集中ゼミで最先端研究をキャッチアップ
+        \item 学会形式で自分の研究を発表
+    \end{itemize}
+    若手研究者が研究の道を本格的に歩み始める第一歩になります!!!
+    
+    \textbf{\red{参加・斡旋・各種協賛お願いします!!!}}
+
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.6\linewidth]{bussei-tweet.png}
+    \end{figure}
+\end{frame}
 
 \end{document}
