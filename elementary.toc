@@ -1,0 +1,13 @@
+\beamer@sectionintoc {1}{べくとるとぎょーれつ}{7}{0}{1}
+\beamer@subsectionintoc {1}{1}{べくとる}{8}{0}{1}
+\beamer@subsectionintoc {1}{2}{たしざん・かけざんがいっぱい}{11}{0}{1}
+\beamer@sectionintoc {2}{こゆーほーてーしき}{16}{0}{2}
+\beamer@subsectionintoc {2}{1}{定義}{17}{0}{2}
+\beamer@subsectionintoc {2}{2}{例}{19}{0}{2}
+\beamer@subsectionintoc {2}{3}{対角化と縮退}{22}{0}{2}
+\beamer@sectionintoc {3}{りろんたいけー}{26}{0}{3}
+\beamer@subsectionintoc {3}{1}{要請}{27}{0}{3}
+\beamer@subsectionintoc {3}{2}{物理量の評価}{32}{0}{3}
+\beamer@sectionintoc {4}{じはつてきたいしょーせーのやぶれ}{35}{0}{4}
+\beamer@subsectionintoc {4}{1}{対称性}{36}{0}{4}
+\beamer@subsectionintoc {4}{2}{自発的対称性の破れ}{41}{0}{4}
