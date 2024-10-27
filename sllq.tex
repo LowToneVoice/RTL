@@ -1,0 +1,16 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{pgffor}
+
+\begin{document}
+\pgfmathsetseed{18}%%% seedを固定値に指定
+\begin{tikzpicture}
+    \def\pts{500}
+    \def\nod{5}
+    \foreach \x in {1, ..., \the\numexpr\pts/\nod}{
+        \foreach \y in {0, 72, ..., 288}{
+            \fill(\x/\pts*3,\y/\pts*\nod)circle(.05);
+        }
+    }
+\end{tikzpicture}
+\end{document}
