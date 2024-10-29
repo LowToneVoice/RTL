@@ -1,0 +1,14 @@
+\documentclass[dvipdfmx]{standalone}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, calc}
+\begin{document}
+\begin{tikzpicture}
+    \draw[->, >=Stealth](0,0)--(0,3)node[above]{$E$};
+    \draw(.5,0)--++(1,0);
+    \foreach\y in{2,3,...,50}{
+        \draw(.5,{3/\y+1.5})--++(1,0);
+    }
+    \draw[<->, >=Stealth](1,0)--++(0,1.5)node[midway, right]{$\Delta E$};
+\end{tikzpicture}
+\end{document}

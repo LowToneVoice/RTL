@@ -145,30 +145,33 @@
     \end{equation*}
 \end{frame}
 
-\begin{exmpl}[固体液体転移]
-    \begin{itemize}
-        \item 液体: 平行移動で対称
-        \item 固体: 平行移動の対称性を\textbf{自発的に破る}
-    \end{itemize}
-    \begin{figure}
-        \centering
-        \begin{minipage}{0.45\linewidth}
+
+\begin{frame}{自発的対称性の破れ}
+    \begin{exmpl}[固体液体転移]
+        \begin{itemize}
+            \item 液体: 平行移動で対称
+            \item 固体: 平行移動の対称性を\textbf{自発的に破る}
+        \end{itemize}
+        \begin{figure}
             \centering
-            \begin{tikzpicture}
-                \draw(0,0)rectangle(3,2);
-                \foreach\t in{0,1,...,100}{
-                    \fill({mod(\t,11)*3/7},{mod(\t,7)*2/13})circle(.05);
-                }
-            \end{tikzpicture}
-        \end{minipage}
-        \begin{minipage}{0.45\linewidth}
-            \centering
-            \begin{tikzpicture}
-                \draw(0,0)rectangle(3,2);
-            \end{tikzpicture}
-        \end{minipage}
-    \end{figure}
-\end{exmpl}
+            \begin{minipage}{0.45\linewidth}
+                \centering
+                \begin{tikzpicture}
+                    \draw(0,0)rectangle(3,2);
+                    \foreach\t in{0,1,...,100}{
+                        \fill({mod(\t,11)*3/7},{mod(\t,7)*2/13})circle(.05);
+                    }
+                \end{tikzpicture}
+            \end{minipage}
+            \begin{minipage}{0.45\linewidth}
+                \centering
+                \begin{tikzpicture}
+                    \draw(0,0)rectangle(3,2);
+                \end{tikzpicture}
+            \end{minipage}
+        \end{figure}
+    \end{exmpl}
+\end{frame}
 
 
 \begin{frame}{秩序変数と相の分類}
@@ -188,22 +191,42 @@
     \end{example}
 \end{frame}
 
-
-
-\begin{frame}{}
+\begin{frame}{Landau paradigm}
+    相分類は自発的対称性の破れだけで決定できると思っていた。
+    \begin{figure}
+        \centering
+        \begin{minipage}{0.45\linewidth}
+            \centering
+            \includegraphics[width=0.8\linewidth]{phase3.png}
+        \end{minipage}
+        \begin{minipage}{0.45\linewidth}
+            \centering
+            \includegraphics[width=0.8\linewidth]{phase-mag.png}
+        \end{minipage}
+    \end{figure}
+    \begin{figure}
+        \centering
+        \begin{minipage}{0.45\linewidth}
+            \centering
+            \includegraphics[width=0.8\linewidth]{melt.png}
+        \end{minipage}
+        \begin{minipage}{0.45\linewidth}
+            \centering
+            \includegraphics[width=0.8\linewidth]{solid2.png}
+        \end{minipage}
+    \end{figure}
 \end{frame}
 
 
+\section{beyond SSBの例: toric code}
 
-
-\section{toric code}
-
+\subsection{toric code}
 
 \begin{frame}{toric code}
     トーラスに格子を張ってスピン1/2を配置.
     \begin{figure}
         \centering
-        \includegraphics[width=0.4\linewidth]{../img/toric.pdf}
+        \includegraphics[width=0.4\linewidth]{./toric.pdf}
     \end{figure}
     \begin{equation*}
         \hat{H}
@@ -305,19 +328,63 @@
 \end{frame}
 
 
-% \section{量子相の分類問題}
+% \subsection{S=1 AF Heisenberg}
 
-% \begin{frame}{量子相の分類}
 
-%     断熱変形で移り変わりが不可能な領域の存在: \textbf{\alert{量子相}}
-%     \begin{center}
-%         \includegraphics[width=\linewidth]{../img/phase-diag.png}
-%     \end{center}
+\section{量子相の分類問題}
 
-%     着目する現象がエキゾチックな量子相のどれに入るか？
+\begin{frame}{量子相の分類}
+    \begin{center}
+        \includegraphics[width=\linewidth]{phase-diag.png}
+    \end{center}
+\end{frame}
 
-%     $\rightarrow$\textbf{\alert{エキゾチックな量子性の判定に使える}}
-% \end{frame}
+\begin{frame}{エネルギーギャップ}
+    \begin{example}[スピン1/2 Heisenbergモデル]
+        \begin{equation*}
+            H=-\sum_j\hat{\bm{S}}_j\cdot\hat{\bm{S}}_{j+1}
+        \end{equation*}
+        スピンが揃った状態が最安定だが、わずかに揺らせば実質エネルギー0で他の状態に移れる。
+        \begin{figure}
+            \centering
+            \begin{tikzpicture}[xscale=3]
+                \foreach\x in{0,0.1,...,1}{
+                    \draw[->, >=Stealth]($(\x,0)+({-90+10*sin(\x*360)}:.5)$)--++({90-10*sin(\x*360)}:1);
+                }
+            \end{tikzpicture}
+        \end{figure}
+    \end{example}
+    \alert{\red{$\rightarrow$外部からの擾乱に弱い}}
+\end{frame}
+
+\begin{frame}{エネルギーギャップ}
+    \begin{figure}
+        \centering
+        \begin{minipage}{0.45\linewidth}
+            \includegraphics[width=0.3\linewidth]{gapless.pdf}
+        \end{minipage}
+        \begin{minipage}{0.45\linewidth}
+            \includegraphics[width=0.3\linewidth]{gapped.pdf}
+        \end{minipage}
+    \end{figure}
+    基底状態からのギャップが広ければ広いほど、外部からの擾乱で他の状態に変わりにくい。
+
+    e.g. 量子ビットに最適!
+\end{frame}
+
+\begin{frame}{エンタングルメント (量子もつれ)}
+    古典的確率で定式化できない相関
+\end{frame}
+
+
+
+\begin{frame}{量子相の分類・再掲}
+    \begin{center}
+        \includegraphics[width=\linewidth]{phase-diag.png}
+    \end{center}
+\end{frame}
+
+
 
 % \begin{frame}{拡張されたLieb-Schultz-Mattis定理}
 %     % $\hat{H}:=\sum_{x\in\Lambda}\hat{h}_x,\qquad|\mathrm{supp}\:\hat{h}_x|<R\ll L$に制限
