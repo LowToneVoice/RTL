@@ -349,7 +349,7 @@
             \centering
             \begin{tikzpicture}[xscale=3]
                 \foreach\x in{0,0.1,...,1}{
-                    \draw[->, >=Stealth]($(\x,0)+({-90+10*sin(\x*360)}:.5)$)--++({90-10*sin(\x*360)}:1);
+                    \draw[->, >=Stealth]($(\x,0)+({-90+5*sin(\x*360)}:.5)$)--++({90-5*sin(\x*360)}:1);
                 }
             \end{tikzpicture}
         \end{figure}
@@ -385,9 +385,150 @@
 \end{frame}
 
 
+\section{対称性と表現}
+
+\begin{frame}{対称性による相の制限}
+    SSBでは対称性から相分類が制限できた。
+    量子相も対称性を使って分類できない?
+
+    対称性について、ちゃんと勉強しないといけない
+\end{frame}
+
+\begin{frame}{対称性再訪}
+    対称性=対称性操作
+    \begin{figure}
+        \centering
+        \begin{minipage}{0.45\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \draw(0,0)--(60:1)--(1,0)--(0,0);
+            \end{tikzpicture}
+        \end{minipage}
+        \begin{minipage}{0.45\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \draw(0,0)circle(.5);
+                \fill(90:.25)circle(.05);
+                \fill(210:.25)circle(.05);
+                \fill(-30:.25)circle(.05);
+                \draw(30:.4)circle(.05);
+                \draw(150:.4)circle(.05);
+                \draw(270:.4)circle(.05);
+            \end{tikzpicture}
+        \end{minipage}
+    \end{figure}
+    正三角形の対称性は
+    \begin{itemize}
+        \item $\pm$120º回転
+        \item 鏡映
+        \item 何もしない
+    \end{itemize}
+    で不変になるものと、これらの組み合わせ。
+    \begin{equation*}
+        p31m:=\{1, R, R^2, M, MR, MR^2 | R^3=M^2=1, MRM=R^2\}
+    \end{equation*}
+\end{frame}
+
+\begin{frame}{対称性と群}
+    対称性操作を表す数学の道具として群が使える。
+    \begin{defn}[群]
+        集合$G$と演算$\cdot$が以下を満たすとき$(G,\cdot)$を群という。
+        \begin{itemize}
+            \item $\cdot$について閉じる ($\forall g_1,g_2\in G, g_1\cdot g_2\in G$)
+            \item 何もしない操作(単位元)が存在 ($\exists 1\in G$ s.t. $1\cdot g=g\cdot1=g$ $\forall g\in G$)
+            \item 全ての操作に対し元に戻す操作(逆元)が存在 ($\forall g\in G\exists g'\in G$ s.t. $g\cdot g'=g'\cdot g=1$)
+        \end{itemize}
+    \end{defn}
+\end{frame}
+
+\begin{frame}{群の表現}
+    ここまでの量子力学に群の言葉を落とし込みたい。
+
+    $\hat{H}, \ket{\psi}$への対称性操作と群をつなぎたい
+    $\rightarrow$\textbf{\alert{群の表現}}
+
+    群を(複素数値)行列の言葉に置き換える。
+    \begin{equation*}
+        p31m\to e^{2\pi i/3}, \mqty(\cos2\pi/3 & -\sin2\pi/3 \\ \sin2\pi/3 & \cos2\pi/3), \dots
+    \end{equation*}
+    行列への置き換え方(表現)は何種類かある。
+\end{frame}
+
+\begin{frame}{表現による作用}
+    行列$\hat{U}$を物理量$\hat{O}$にかけると対称操作ができる。
+    \begin{equation*}
+        \hat{U}_{120^\circ}\hat{O}\hat{U}^{-1}_{120^\circ}:
+        \quad
+        \hat{O}\text{の120º回転}
+    \end{equation*}
+
+    表現行列$\hat{U}$を状態$\ket{\psi}$にかけると対称操作ができる。
+    \begin{equation*}
+        \hat{U}_{120^\circ}\ket{\psi}:
+        \quad
+        \ket{\psi}\text{の120º回転}
+    \end{equation*}
+\end{frame}
+
+\begin{frame}{状態の位相不変性}
+    \begin{them}[状態の位相不変性]
+        量子状態$\ket{\psi}$はU(1)位相の変化
+        \begin{equation*}
+            \ket{\psi}\mapsto e^{i\theta}\ket{\psi}
+        \end{equation*}
+        で物理を変えない
+    \end{them}
+    現実には状態ベクトルを測定できず、必ず期待値や固有値の形しか現れない。
+    $\rightarrow$脚は潰れている。
+    \begin{equation*}
+        \begin{tikzpicture}
+            \node at(0,0)[draw,rectangle](H){$\hat{H}$};
+            \node at(-1,0)[draw,rectangle](f){$\phi$};
+            \node at(1,0)[draw,rectangle](U){$\hat{U}$};
+            \node at(2,0)[draw,rectangle](y){$\psi$};
+            \draw(f.east)--(H.west)(H.east)--(U.west)(U.east)--(y.west);
+        \end{tikzpicture}
+    \end{equation*}
+
+    表現も状態にかけるとき位相$e^{i\theta}$の自由度が許される。
+\end{frame}
+
+\begin{frame}{射影表現}
+    群演算で生じる位相のズレを許す。
+    \begin{defn}[射影表現]
+        群$G$の表現$\hat{U}$が
+        \begin{equation*}
+            \hat{U}_g\hat{U}_h=e^{i\theta(g,h)}\hat{U}_{gh}
+        \end{equation*}
+        の形をとるとき、これを射影表現という。
+    \end{defn}
+    \begin{exmpl}[スピン1/2 $\pi$回転]
+        3次元空間の回転はSO(3)で表せる。
+        180º回転を$g\in\mathrm{SO}(3)$とすると、群の捜査としては360º回転$g^2$は何もしないのと同じ:
+        $g^2=1$.
+        だが、スピン1/2表現では
+        \begin{equation*}
+            U_gU_g=e^{i\pi}U_{g^2}=-1
+        \end{equation*}
+        とすることが許される。
+    \end{exmpl}
+\end{frame}
+
+\begin{frame}{射影表現なら縮退}
+    \begin{them}[射影表現なら縮退]
+        表現が非自明な射影表現なら、基底状態は縮退する。
+    \end{them}
+    対偶「縮退が絶対に起きない1次元表現なら表現は射影表現でない」がわかりやすい。
+    群演算で生じる位相のズレ
+    \begin{equation*}
+        \hat{U}_g\hat{U}_h\hat{U}_{gh}^{-1}
+        =
+        e^{i\theta(g,h)}
+    \end{equation*}
+    は
+\end{frame}
 
 % \begin{frame}{拡張されたLieb-Schultz-Mattis定理}
-%     % $\hat{H}:=\sum_{x\in\Lambda}\hat{h}_x,\qquad|\mathrm{supp}\:\hat{h}_x|<R\ll L$に制限
 %     \begin{them}[拡張Lieb-Schultz-Mattis定理]
 %         基底状態がunique gappedのとき, 以下を満たす.
 %         \begin{enumerate}
@@ -542,88 +683,88 @@
 
 % % \subsection{射影表現}
 
-% % % \begin{frame}{エネルギー固有状態と既約表現}
-% % %     \begin{itemize}
-% % %         \item $\mathcal{H}$: Hilbert空間
-% % %         \item $G$: 対称性を与える群
-% % %         \item $\widehat{}: G\to$ set of operators on $\mathcal{H}$
-% % %     \end{itemize}
-% % %     対称性変換: $g\in G$で状態が$\ket{\psi}\mapsto\hat{g}\ket{\psi}$と変換.
-% % %     $\hat{g}\in\mathrm{U}(\mathcal{H})$は$g\in G$の表現.
+\begin{frame}{エネルギー固有状態と既約表現}
+    \begin{itemize}
+        \item $\mathcal{H}$: Hilbert空間
+        \item $G$: 対称性を与える群
+        \item $\widehat{}: G\to$ set of operators on $\mathcal{H}$
+    \end{itemize}
+    対称性変換: $g\in G$で状態が$\ket{\psi}\mapsto\hat{g}\ket{\psi}$と変換.
+    $\hat{g}\in\mathrm{U}(\mathcal{H})$は$g\in G$の表現.
 
-% % %     系が対称性を満たす($[\hat{g},\hat{H}]=0$)なら,
-% % %     \begin{equation*}
-% % %         \hat{H}\hat{g}\ket{E}
-% % %         =
-% % %         E\hat{g}\ket{E}
-% % %     \end{equation*}
-% % %     $\hat{g}$は固有値ごとにブロック対角化されている
+    系が対称性を満たす($[\hat{g},\hat{H}]=0$)なら,
+    \begin{equation*}
+        \hat{H}\hat{g}\ket{E}
+        =
+        E\hat{g}\ket{E}
+    \end{equation*}
+    $\hat{g}$は固有値ごとにブロック対角化されている
 
-% % %     $\longrightarrow$
-% % %     \alert{エネルギー固有状態は$G$の既約表現の基底}
-% % % \end{frame}
+    $\longrightarrow$
+    \alert{エネルギー固有状態は$G$の既約表現の基底}
+\end{frame}
 
-% % \begin{frame}{射影表現}
-% %     \begin{itemize}
-% %         \item $\mathcal{H}$: Hilbert空間
-% %         \item $G$: 対称性を与える群
-% %         \item $\widehat{}: G\to$ set of operators on $\mathcal{H}$
-% %     \end{itemize}
-% %     量子状態はU(1)位相自由度を同一視:
-% %     \begin{equation*}
-% %         \hat{g}\hat{h}\ket{\psi}
-% %         =
-% %         e^{i\theta_{g,h}}\widehat{(gh)}\ket{\psi}
-% %     \end{equation*}
-% %     としても差し支えない.
-% %     位相自由度を演算子に付与$\rightarrow$\alert{射影表現}
+\begin{frame}{射影表現}
+    \begin{itemize}
+        \item $\mathcal{H}$: Hilbert空間
+        \item $G$: 対称性を与える群
+        \item $\widehat{}: G\to$ set of operators on $\mathcal{H}$
+    \end{itemize}
+    量子状態はU(1)位相自由度を同一視:
+    \begin{equation*}
+        \hat{g}\hat{h}\ket{\psi}
+        =
+        e^{i\theta_{g,h}}\widehat{(gh)}\ket{\psi}
+    \end{equation*}
+    としても差し支えない.
+    位相自由度を演算子に付与$\rightarrow$\alert{射影表現}
 
-% %     % U(1)位相自由度を射影表現にも与える
-% %     % $\longrightarrow[\theta_{g,h}]$の同値類 (\textbf{乗数系}) を組める.
+    U(1)位相自由度を射影表現にも与える
+    $\longrightarrow[\theta_{g,h}]$の同値類 (\textbf{乗数系}) を組める.
 
-% %     % cf. 線形表現$\rho: G\to\mathrm{GL}(\mathcal{H})$は$\rho(g)\rho(h)=\rho(gh)$.
+    cf. 線形表現$\rho: G\to\mathrm{GL}(\mathcal{H})$は$\rho(g)\rho(h)=\rho(gh)$.
 
-% %     \begin{eg*}{スピン1/2系の$\pi$回転}{}
-% %         $z$軸周り$\pi$回転は$U_\pi^2=U_{2\pi}=1$を満たすが, スピンに作用すると
-% %         \begin{equation*}
-% %             (\hat{U}_\pi)^2
-% %             =
-% %             (e^{-\pi i\hat{S}^{(3)}})^2
-% %             =
-% %             -1
-% %             =
-% %             e^{i\pi}\hat{U}_{2\pi}
-% %         \end{equation*}
-% %     \end{eg*}
-% % \end{frame}
+    \begin{exmpl}{スピン1/2系の$\pi$回転}{}
+        $z$軸周り$\pi$回転は$U_\pi^2=U_{2\pi}=1$を満たすが, スピンに作用すると
+        \begin{equation*}
+            (\hat{U}_\pi)^2
+            =
+            (e^{-\pi i\hat{S}^{(3)}})^2
+            =
+            -1
+            =
+            e^{i\pi}\hat{U}_{2\pi}
+        \end{equation*}
+    \end{exmpl}
+\end{frame}
 
-% % \begin{frame}{射影表現の同値類}
-% %     \begin{equation*}
-% %         \hat{g}\hat{h}=e^{i\theta_{g,h}}\widehat{gh}
-% %     \end{equation*}
-% %     U(1)位相自由度を$\hat{g}$などにも与えて$\hat{g}\sim\hat{g}e^{i\alpha_g}$を同一視.
-% %     \begin{equation*}
-% %         e^{i\theta_{g,h}}
-% %         \sim
-% %         \frac{e^{i\alpha_{gh}}}{e^{i\alpha_g}e^{i\alpha_h}}
-% %         e^{i\theta_{g,h}}
-% %     \end{equation*}
-% %     特に$\{\hat{g}\}$が1次元表現(U(1))の場合は, この同一視により
-% %     \begin{equation*}
-% %         e^{i\theta_{g,h}}
-% %         \sim
-% %         e^{i\theta_{g,h}}
-% %         \frac{\widehat{gh}}{\hat{g}\hat{h}}
-% %         =
-% %         1.
-% %     \end{equation*}
-% %     \begin{prop*}{1次元射影表現は自明}{}
-% %         % 状態のU(1)位相自由度により同一視すると,
-% %         1次元射影表現は本質的に全ての$\theta_{g,h}$を0とできる.
+\begin{frame}{射影表現の同値類}
+    \begin{equation*}
+        \hat{g}\hat{h}=e^{i\theta_{g,h}}\widehat{gh}
+    \end{equation*}
+    U(1)位相自由度を$\hat{g}$などにも与えて$\hat{g}\sim\hat{g}e^{i\alpha_g}$を同一視.
+    \begin{equation*}
+        e^{i\theta_{g,h}}
+        \sim
+        \frac{e^{i\alpha_{gh}}}{e^{i\alpha_g}e^{i\alpha_h}}
+        e^{i\theta_{g,h}}
+    \end{equation*}
+    特に$\{\hat{g}\}$が1次元表現(U(1))の場合は, この同一視により
+    \begin{equation*}
+        e^{i\theta_{g,h}}
+        \sim
+        e^{i\theta_{g,h}}
+        \frac{\widehat{gh}}{\hat{g}\hat{h}}
+        =
+        1.
+    \end{equation*}
+    \begin{them}{1次元射影表現は自明}{}
+        状態のU(1)位相自由度により同一視すると,
+        1次元射影表現は本質的に全ての$\theta_{g,h}$を0とできる.
 
-% %         対偶から, \textbf{\alert{本質的に非自明な射影表現は}}表現次元が2以上なので\textbf{\alert{基底状態が縮退}}する.
-% %     \end{prop*}
-% % \end{frame}
+        対偶から, \textbf{\alert{本質的に非自明な射影表現は}}表現次元が2以上なので\textbf{\alert{基底状態が縮退}}する.
+    \end{them}
+\end{frame}
 
 % % % \subsection{2D格子ホモトピー (case 2)}
 
