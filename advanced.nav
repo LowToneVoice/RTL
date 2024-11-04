@@ -76,8 +76,17 @@
 \headcommand {\beamer@framepages {31}{31}}
 \headcommand {\slideentry {4}{0}{12}{32/32}{}{0}}
 \headcommand {\beamer@framepages {32}{32}}
-\headcommand {\beamer@partpages {1}{32}}
-\headcommand {\beamer@subsectionpages {21}{32}}
 \headcommand {\beamer@sectionpages {21}{32}}
-\headcommand {\beamer@documentpages {32}}
-\headcommand {\gdef \inserttotalframenumber {32}}
+\headcommand {\beamer@subsectionpages {21}{32}}
+\headcommand {\sectionentry {5}{Conclusion}{33}{Conclusion}{0}}
+\headcommand {\slideentry {5}{0}{1}{33/33}{}{0}}
+\headcommand {\beamer@framepages {33}{33}}
+\headcommand {\slideentry {5}{0}{2}{34/34}{}{0}}
+\headcommand {\beamer@framepages {34}{34}}
+\headcommand {\slideentry {5}{0}{3}{35/35}{}{0}}
+\headcommand {\beamer@framepages {35}{35}}
+\headcommand {\beamer@partpages {1}{35}}
+\headcommand {\beamer@subsectionpages {33}{35}}
+\headcommand {\beamer@sectionpages {33}{35}}
+\headcommand {\beamer@documentpages {35}}
+\headcommand {\gdef \inserttotalframenumber {35}}

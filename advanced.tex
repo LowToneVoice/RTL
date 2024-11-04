@@ -9,6 +9,7 @@
 \newtheorem*{defn}{定義}
 \newtheorem*{goal}{目標}
 \newtheorem*{exmpl}{例}
+\newtheorem*{takehome}{Take home message}
 
 \setbeamertemplate{footline}[frame number]
 \AtBeginSection[]{
@@ -439,32 +440,31 @@
             \item 全ての操作に対し元に戻す操作(逆元)が存在 ($\forall g\in G\exists g'\in G$ s.t. $g\cdot g'=g'\cdot g=1$)
         \end{itemize}
     \end{defn}
+    あくまで\textbf{対称性対称性操作}しか扱ってない。
 \end{frame}
 
 \begin{frame}{群の表現}
-    ここまでの量子力学に群の言葉を落とし込みたい。
-
-    $\hat{H}, \ket{\psi}$への対称性操作と群をつなぎたい
+    対称性操作と量子力学(線形代数)をつなげたい
     $\rightarrow$\textbf{\alert{群の表現}}
 
-    群を(複素数値)行列の言葉に置き換える。
+    群元を(複素数値)行列の言葉に置き換える。
     \begin{equation*}
-        p31m\to e^{2\pi i/3}, \mqty(\cos2\pi/3 & -\sin2\pi/3 \\ \sin2\pi/3 & \cos2\pi/3), \dots
+        R\to \hat{R}=e^{2\pi i/3}, \mqty(\cos2\pi/3 & -\sin2\pi/3 \\ \sin2\pi/3 & \cos2\pi/3), \dots
     \end{equation*}
-    行列への置き換え方(表現)は何種類かある。
+    群元$R$に$\hat{}$をつけることで$R$に対応する行列$\hat{R}$に移す。
 \end{frame}
 
 \begin{frame}{表現による作用}
-    行列$\hat{U}$を物理量$\hat{O}$にかけると対称操作ができる。
+    行列$\hat{R}$を物理量$\hat{O}$にかけると回転ができる。
     \begin{equation*}
-        \hat{U}_{120^\circ}\hat{O}\hat{U}^{-1}_{120^\circ}:
+        \hat{R}\hat{O}\hat{R}^{-1}:
         \quad
         \hat{O}\text{の120º回転}
     \end{equation*}
 
-    表現行列$\hat{U}$を状態$\ket{\psi}$にかけると対称操作ができる。
+    表現行列$\hat{R}$を状態$\ket{\psi}$にかけると対称操作ができる。
     \begin{equation*}
-        \hat{U}_{120^\circ}\ket{\psi}:
+        \hat{R}\ket{\psi}:
         \quad
         \ket{\psi}\text{の120º回転}
     \end{equation*}
@@ -493,40 +493,40 @@
     表現も状態にかけるとき位相$e^{i\theta}$の自由度が許される。
 \end{frame}
 
-\begin{frame}{射影表現}
-    群演算で生じる位相のズレを許す。
-    \begin{defn}[射影表現]
-        群$G$の表現$\hat{U}$が
-        \begin{equation*}
-            \hat{U}_g\hat{U}_h=e^{i\theta(g,h)}\hat{U}_{gh}
-        \end{equation*}
-        の形をとるとき、これを射影表現という。
-    \end{defn}
-    \begin{exmpl}[スピン1/2 $\pi$回転]
-        3次元空間の回転はSO(3)で表せる。
-        180º回転を$g\in\mathrm{SO}(3)$とすると、群の捜査としては360º回転$g^2$は何もしないのと同じ:
-        $g^2=1$.
-        だが、スピン1/2表現では
-        \begin{equation*}
-            U_gU_g=e^{i\pi}U_{g^2}=-1
-        \end{equation*}
-        とすることが許される。
-    \end{exmpl}
-\end{frame}
+% \begin{frame}{射影表現}
+%     群演算で生じる位相のズレを許す。
+%     \begin{defn}[射影表現]
+%         群$G$の表現$\hat{U}$が
+%         \begin{equation*}
+%             \hat{U}_g\hat{U}_h=e^{i\theta(g,h)}\hat{U}_{gh}
+%         \end{equation*}
+%         の形をとるとき、射影表現という。
+%     \end{defn}
+%     \begin{exmpl}[スピン1/2 $\pi$回転]
+%         3次元空間の回転はSO(3)で表せる。
+%         180º回転を$g\in\mathrm{SO}(3)$とすると、群の捜査としては360º回転$g^2$は何もしないのと同じ:
+%         $g^2=1$.
+%         だが、スピン1/2表現では
+%         \begin{equation*}
+%             U_gU_g=e^{i\pi}U_{g^2}=-1
+%         \end{equation*}
+%         とすることが許される。
+%     \end{exmpl}
+% \end{frame}
 
-\begin{frame}{射影表現なら縮退}
-    \begin{them}[射影表現なら縮退]
-        表現が非自明な射影表現なら、基底状態は縮退する。
-    \end{them}
-    対偶「縮退が絶対に起きない1次元表現なら表現は射影表現でない」がわかりやすい。
-    群演算で生じる位相のズレ
-    \begin{equation*}
-        \hat{U}_g\hat{U}_h\hat{U}_{gh}^{-1}
-        =
-        e^{i\theta(g,h)}
-    \end{equation*}
-    は
-\end{frame}
+% \begin{frame}{射影表現なら縮退}
+%     \begin{them}[射影表現なら縮退]
+%         表現が非自明な射影表現なら、基底状態は縮退する。
+%     \end{them}
+%     対偶「縮退が絶対に起きない1次元表現なら表現は射影表現でない」がわかりやすい。
+%     群演算で生じる位相のズレ
+%     \begin{equation*}
+%         \hat{U}_g\hat{U}_h\hat{U}_{gh}^{-1}
+%         =
+%         e^{i\theta(g,h)}
+%     \end{equation*}
+%     は
+% \end{frame}
 
 % \begin{frame}{拡張されたLieb-Schultz-Mattis定理}
 %     \begin{them}[拡張Lieb-Schultz-Mattis定理]
@@ -722,14 +722,14 @@
     U(1)位相自由度を射影表現にも与える
     $\longrightarrow[\theta_{g,h}]$の同値類 (\textbf{乗数系}) を組める.
 
-    cf. 線形表現$\rho: G\to\mathrm{GL}(\mathcal{H})$は$\rho(g)\rho(h)=\rho(gh)$.
+    % cf. 線形表現$\rho: G\to\mathrm{GL}(\mathcal{H})$は$\rho(g)\rho(h)=\rho(gh)$.
 
-    \begin{exmpl}{スピン1/2系の$\pi$回転}{}
-        $z$軸周り$\pi$回転は$U_\pi^2=U_{2\pi}=1$を満たすが, スピンに作用すると
+    \begin{exmpl}[スピン1/2系の$\pi$回転]
+        群元のレベルでは$U_\pi^2=U_{2\pi}=1$だが, 演算子としてスピンに作用すると
         \begin{equation*}
             (\hat{U}_\pi)^2
             =
-            (e^{-\pi i\hat{S}^{(3)}})^2
+            (e^{-i\pi\hat{S}^{(3)}})^2
             =
             -1
             =
@@ -970,22 +970,68 @@
 % % % %     並進対称性のある1Dスピン系では, 各サイトに乗る射影表現の乗数系が非自明のとき基底状態が縮退するかギャップレス.
 % % % % \end{thm}
 
-% % % \section{Conclusion}
 
-% \begin{frame}{Conclusion}
-%     \begin{takehome}
-%         \begin{itemize}
-%             \item 量子相は\textbf{\alert{自発的対称性の破れよりも細かい分類}}が必要になる.
-%             \item 拡張Lieb-Schultz-Mattis定理はある種の条件下で\textbf{\alert{基底状態がunique gappedであることを禁止}}する.
-%             \item \textbf{\alert{モデルがどの相に属するか}}の判断材料になる.
-%         \end{itemize}
-%     \end{takehome}
+\begin{frame}{射影表現による相分類の制限}
+    \begin{them}[射影表現なら縮退]
+        系が非自明な射影表現に従うとき基底状態は縮退する。
+    \end{them}
+    相図を制限できる。
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.8\linewidth]{phaseLSM.png}
+    \end{figure}
+\end{frame}
 
-%     % info. 開放系への応用 (Kawabata-Sohal-Ryu (2024)), アノマリーとの関係 (Cho-Hsieh-Ryu (2017) 1705.03892, Cheng-Seoberg (2023) 2211.12543) も指摘されている.
+
+\begin{frame}{何が嬉しいのか?}
+    理論屋にとっては
+    \begin{itemize}
+        \item 理論にある性質を計算しなくても求められる
+        \item 欲しい性質がある理論を作る指針になる
+    \end{itemize}
+    実験屋にとっては
+    \begin{itemize}
+        \item 実現したい現象の候補物質を絞れる
+        \item 自分が持っている物質に期待される現象がわかる
+    \end{itemize}
+    いずれにしても、\alert{\textbf{エキゾチックな現象の発見}}に役立つ
+\end{frame}
 
 
-%     % \textbf{ポスター No. 38} にて詳細の情報.
-% \end{frame}
+\section{Conclusion}
+
+\begin{frame}{Conclusion}
+    \begin{takehome}
+        \begin{itemize}
+            \item 量子相は\textbf{\alert{自発的対称性の破れよりも細かい分類}}が必要になる.
+            \item 拡張Lieb-Schultz-Mattis定理はある種の条件下で\textbf{\alert{基底状態がunique gappedであることを禁止}}する.
+            \item \textbf{\alert{モデルがどの相に属するか}}の判断材料になる.
+        \end{itemize}
+    \end{takehome}
+
+    % info. 開放系への応用 (Kawabata-Sohal-Ryu (2024)), アノマリーとの関係 (Cho-Hsieh-Ryu (2017) 1705.03892, Cheng-Seoberg (2023) 2211.12543) も指摘されている.
+
+
+    % \textbf{ポスター No. 38} にて詳細の情報.
+\end{frame}
+
+\begin{frame}{2025年物性若手夏の学校やります!!!}
+    \begin{itemize}
+        \item 全国の物性物理関連の大学院生が集結
+        \item 4泊5日の集中合宿
+        \item 講義・集中ゼミで最先端研究をキャッチアップ
+        \item 学会形式で自分の研究を発表
+    \end{itemize}
+    若手研究者が研究の道を本格的に歩み始める第一歩になります!!!
+
+    \textbf{\red{参加・斡旋・各種協賛お願いします!!!}}
+
+    \textbf{\red{$\downarrow$個人協賛応募フォーム$\downarrow$}}(調整中)
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.2\linewidth]{QR_736654.png}
+    \end{figure}
+\end{frame}
 
 
 \end{document}
