@@ -36,10 +36,10 @@
 
     \textbf{\red{参加・斡旋・各種協賛お願いします!!!}}
 
-    \textbf{\red{$\downarrow$個人協賛応募フォーム$\downarrow$}}(調整中)
+    \textbf{\red{$\downarrow$個人協賛応募フォーム$\downarrow$}}
     \begin{figure}
         \centering
-        \includegraphics[width=0.2\linewidth]{QR_736654.png}
+        \includegraphics[width=0.2\linewidth]{QR_992675.png}
     \end{figure}
 \end{frame}
 
@@ -122,8 +122,8 @@
 
 \begin{frame}
     \begin{defn}[基底状態]
-        理論$\hat{H}$の最小固有値を出す固有状態. 
-        絶対零度では基底状態が実現する. 
+        理論$\hat{H}$の最小固有値を出す固有状態.
+        絶対零度では基底状態が実現する.
     \end{defn}
     \begin{defn}[\red{\textbf{状態の}}対称性]
         変換$\hat{U}$によって$\hat{U}\ket{\psi}\equiv\ket{\psi}$となること
@@ -191,7 +191,7 @@
             \qquad
             (\forall x)
         \end{equation*}
-        となるような局所パラメータ$\ev{\hat{O}(x)}{\mathrm{GS}}$を秩序変数という. 
+        となるような局所パラメータ$\ev{\hat{O}(x)}{\mathrm{GS}}$を秩序変数という.
     \end{defn}
     \begin{example}[常磁性・強磁性転移]
         磁化$\ev{\hat{m}}{\mathrm{GS}}$が秩序変数
@@ -199,7 +199,7 @@
 \end{frame}
 
 \begin{frame}{Landau paradigm}
-    相分類は自発的対称性の破れだけで決定できると思っていた. 
+    相分類は自発的対称性の破れだけで決定できると思っていた.
     \begin{figure}
         \centering
         \begin{minipage}{0.45\linewidth}
@@ -327,11 +327,11 @@
             \draw[gray, dashed, ultra thick](-2,0)arc(180:360:.5 and .4);
         \end{tikzpicture}
     \end{figure}
-    loop $l_1, l_2$にと直交するloopで$\prod_{j\in l_i}\sigma_j^z$を取ると, それぞれ固有値が異なる. 
+    loop $l_1, l_2$にと直交するloopで$\prod_{j\in l_i}\sigma_j^z$を取ると, それぞれ固有値が異なる.
     基底状態が直交して4重縮退.
 
     しかしこの4つは\textbf{\alert{局所的な測定で区別できない}}.
-    
+
     \textbf{\alert{自発的対称性の破れだけでは相の分類が足りない?}}
 \end{frame}
 
@@ -352,7 +352,7 @@
         \begin{equation*}
             H=-\sum_j\hat{\bm{S}}_j\cdot\hat{\bm{S}}_{j+1}
         \end{equation*}
-        スピンが揃った状態が最安定だが, わずかに揺らせば実質エネルギー0で他の状態に移れる. 
+        スピンが揃った状態が最安定だが, わずかに揺らせば実質エネルギー0で他の状態に移れる.
         \begin{figure}
             \centering
             \begin{tikzpicture}[xscale=3]
@@ -375,7 +375,7 @@
             \includegraphics[width=0.3\linewidth]{gapped.pdf}
         \end{minipage}
     \end{figure}
-    基底状態からのギャップが広ければ広いほど, 外部からの擾乱で他の状態に変わりにくい. 
+    基底状態からのギャップが広ければ広いほど, 外部からの擾乱で他の状態に変わりにくい.
 
     e.g. 量子ビットに最適!
 \end{frame}
@@ -406,7 +406,7 @@
             \draw(2,1.2)-|(1.8,1.7)--(2,1.7);
         \end{tikzpicture}
     \end{figure}
-    有限幅の変換を有限回繰り返すと, 有限幅でしか状態が混ざらない. 
+    有限幅の変換を有限回繰り返すと, 有限幅でしか状態が混ざらない.
     \begin{itemize}
         \item エンタングルメントが無限に広がっている: long range entangled (LRE)
         \item エンタングルメントが有限幅に収まる: short range entangled (SRE)
@@ -425,7 +425,7 @@
 \section{対称性と表現}
 
 \begin{frame}{対称性による相の制限}
-    SSBでは対称性から相分類が制限できた. 
+    SSBでは対称性から相分類が制限できた.
     量子相も対称性を使って分類できない?
 
     対称性について, ちゃんと勉強しないといけない
@@ -460,45 +460,45 @@
         \item 鏡映
         \item 何もしない
     \end{itemize}
-    で不変になるものと, これらの組み合わせ. 
+    で不変になるものと, これらの組み合わせ.
     \begin{equation*}
         p31m:=\{1, R, R^2, M, MR, MR^2 | R^3=M^2=1, MRM=R^2\}
     \end{equation*}
 \end{frame}
 
 \begin{frame}{対称性と群}
-    対称性操作を表す数学の道具として群が使える. 
+    対称性操作を表す数学の道具として群が使える.
     \begin{defn}[群]
-        集合$G$と演算$\cdot$が以下を満たすとき$(G,\cdot)$を群という. 
+        集合$G$と演算$\cdot$が以下を満たすとき$(G,\cdot)$を群という.
         \begin{itemize}
             \item $\cdot$について閉じる ($\forall g_1,g_2\in G, g_1\cdot g_2\in G$)
             \item 何もしない操作(単位元)が存在 ($\exists 1\in G$ s.t. $1\cdot g=g\cdot1=g$ $\forall g\in G$)
             \item 全ての操作に対し元に戻す操作(逆元)が存在 ($\forall g\in G\exists g'\in G$ s.t. $g\cdot g'=g'\cdot g=1$)
         \end{itemize}
     \end{defn}
-    あくまで\textbf{対称性対称性操作}しか扱ってない. 
+    あくまで\textbf{対称性対称性操作}しか扱ってない.
 \end{frame}
 
 \begin{frame}{群の表現}
     対称性操作と量子力学(線形代数)をつなげたい
     $\rightarrow$\textbf{\alert{群の表現}}
 
-    群元を(複素数値)行列の言葉に置き換える. 
+    群元を(複素数値)行列の言葉に置き換える.
     \begin{equation*}
         R\to \hat{R}=e^{2\pi i/3}, \mqty(\cos2\pi/3 & -\sin2\pi/3 \\ \sin2\pi/3 & \cos2\pi/3), \dots
     \end{equation*}
-    群元$R$に$\hat{}$をつけることで$R$に対応する行列$\hat{R}$に移す. 
+    群元$R$に$\hat{}$をつけることで$R$に対応する行列$\hat{R}$に移す.
 \end{frame}
 
 \begin{frame}{表現による作用}
-    行列$\hat{R}$を物理量$\hat{O}$にかけると回転ができる. 
+    行列$\hat{R}$を物理量$\hat{O}$にかけると回転ができる.
     \begin{equation*}
         \hat{R}\hat{O}\hat{R}^{-1}:
         \quad
         \hat{O}\text{の120º回転}
     \end{equation*}
 
-    表現行列$\hat{R}$を状態$\ket{\psi}$にかけると対称操作ができる. 
+    表現行列$\hat{R}$を状態$\ket{\psi}$にかけると対称操作ができる.
     \begin{equation*}
         \hat{R}\ket{\psi}:
         \quad
@@ -514,8 +514,8 @@
         \end{equation*}
         で物理を変えない
     \end{requirement}
-    現実には状態ベクトルを測定できず, 必ず期待値や固有値の形しか現れない. 
-    $\rightarrow$脚は潰れている. 
+    現実には状態ベクトルを測定できず, 必ず期待値や固有値の形しか現れない.
+    $\rightarrow$脚は潰れている.
     \begin{equation*}
         \begin{tikzpicture}
             \node at(0,0)[draw,rectangle](H){$\hat{H}$};
@@ -526,35 +526,35 @@
         \end{tikzpicture}
     \end{equation*}
 
-    表現も状態にかけるとき位相$e^{i\theta}$の自由度が許される. 
+    表現も状態にかけるとき位相$e^{i\theta}$の自由度が許される.
 \end{frame}
 
 % \begin{frame}{射影表現}
-%     群演算で生じる位相のズレを許す. 
+%     群演算で生じる位相のズレを許す.
 %     \begin{defn}[射影表現]
 %         群$G$の表現$\hat{U}$が
 %         \begin{equation*}
 %             \hat{U}_g\hat{U}_h=e^{i\theta(g,h)}\hat{U}_{gh}
 %         \end{equation*}
-%         の形をとるとき, 射影表現という. 
+%         の形をとるとき, 射影表現という.
 %     \end{defn}
 %     \begin{exmpl}[スピン1/2 $\pi$回転]
-%         3次元空間の回転はSO(3)で表せる. 
+%         3次元空間の回転はSO(3)で表せる.
 %         180º回転を$g\in\mathrm{SO}(3)$とすると, 群の捜査としては360º回転$g^2$は何もしないのと同じ:
 %         $g^2=1$.
 %         だが, スピン1/2表現では
 %         \begin{equation*}
 %             U_gU_g=e^{i\pi}U_{g^2}=-1
 %         \end{equation*}
-%         とすることが許される. 
+%         とすることが許される.
 %     \end{exmpl}
 % \end{frame}
 
 % \begin{frame}{射影表現なら縮退}
 %     \begin{them}[射影表現なら縮退]
-%         表現が非自明な射影表現なら, 基底状態は縮退する. 
+%         表現が非自明な射影表現なら, 基底状態は縮退する.
 %     \end{them}
-%     対偶「縮退が絶対に起きない1次元表現なら表現は射影表現でない」がわかりやすい. 
+%     対偶「縮退が絶対に起きない1次元表現なら表現は射影表現でない」がわかりやすい.
 %     群演算で生じる位相のズレ
 %     \begin{equation*}
 %         \hat{U}_g\hat{U}_h\hat{U}_{gh}^{-1}
@@ -1009,9 +1009,9 @@
 
 \begin{frame}{射影表現による相分類の制限}
     \begin{them}[射影表現なら縮退]
-        系が非自明な射影表現に従うとき基底状態は縮退する. 
+        系が非自明な射影表現に従うとき基底状態は縮退する.
     \end{them}
-    相図を制限できる. 
+    相図を制限できる.
     \begin{figure}
         \centering
         \includegraphics[width=0.8\linewidth]{phaseLSM.png}
